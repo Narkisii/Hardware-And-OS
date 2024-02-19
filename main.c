@@ -6,18 +6,12 @@
 #define NUM_THREADS 4
 #define HASH_SIZE 26
 
-/*
-pthread_mutex_t mutex1 = PTHREAD_MUTEX_INITIALIZER; // Setting Up MUTEX
-
-struct arg_struct { // Setting Up Struct For Mapping Argument. For Ranging (To Split Work For Threading)
-    int arg1; // First Argument, From.
-    int arg2; // Second Argument, To.
-}; */
-
 typedef struct { // hash table with 26 counters - one for every letter
     char letter;
     int count;
 } HashTable;
+
+HashTable letters_table[HASH_SIZE];
 
 void initialize_hash(HashTable table[]) {
     for (int i = 0; i < HASH_SIZE; i++) {
@@ -57,14 +51,10 @@ FILE *open_file(void *file_path) {
     return file;
 }
 
-void read_file(FILE *file) {
-    char ch;
-    while ((ch = fgetc(file)) != EOF) {
-        //printf("%c", ch);
-
+void add_counts_to_main(HashTable table[]) {
+    for(int i = 0; i < HASH_SIZE; i++) {
+        letters_table[i].count += table[i].count;
     }
-    fclose(file);
-    pthread_exit(NULL);
 }
 
 void *run_thread(void *args) {
@@ -75,10 +65,12 @@ void *run_thread(void *args) {
     initialize_hash(td_letters); // initialize hash table with counters for every letter
 
     char ch;
+    // read the file and count every letter
+    // (will count lower case and upper case the same)
     while ((ch = fgetc(file)) != EOF) {
         count_letters(td_letters, ch);
     }
-    print_hash(td_letters);
+    add_counts_to_main(td_letters);
 
     fclose(file);
     pthread_exit(NULL);
@@ -86,19 +78,10 @@ void *run_thread(void *args) {
 
 int main() {
     int pread;
-    HashTable lettersTable[HASH_SIZE];
-    initialize_hash(lettersTable);
+    initialize_hash(letters_table);
 
     pthread_t threads[NUM_THREADS];
     char *files[NUM_THREADS] = {"file1.txt", "file2.txt", "file3.txt", "file4.txt"};
-
-    /*
-    pread = pthread_create(&threads[0], NULL, run_thread, (void *) files[0]);
-    if (pread != 0) {
-        printf("ERROR; return code from pthread_create() is %d\n", pread);
-        exit(-1);
-    }
-     */
 
     for (int t = 0; t < NUM_THREADS; t++) {
         printf("Creating thread to read file: %s\n", files[t]);
@@ -108,12 +91,12 @@ int main() {
             exit(-1);
         }
     }
-    /*
- int join = pthread_join(threads[0], NULL); // Join to Get Words Into Test Array
- if (join != 0) { // In Case Thread Join Fails
-     fprintf(stderr, "Join Failed");
-     return 1;
- } */
+
+    for (int t = 0; t < NUM_THREADS; t++) {
+        pthread_join(threads[t], NULL);
+    }
+    print_hash(letters_table);
+
     pthread_exit(NULL);
     //return 0;
 }
