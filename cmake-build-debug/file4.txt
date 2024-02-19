@@ -1,0 +1,564 @@
+Human Computation and Serious Games: Papers from the 2012 AIIDE Joint Workshop
+AAAI Technical Report WS-12-17
+
+Artificial Intelligence and Personalization
+Opportunities for Serious Games
+A. Brisson, G. Pereira, R. Prada, A. Paiva
+
+S. Louchart , N. Suttie, T. Lim
+
+INESC-ID and Instituto Superior Técnico,
+Technical University of Lisbon
+
+Harriot-Watt University
+
+R. Lopes, R. Bidarra
+
+F. Bellotti
+
+TUDelft
+
+University of Genoa
+
+M. Kravcik
+
+M. Oliveira
+
+RWTH-Aachen
+
+Sintef
+
+Abstract
+
+by the community and then break them down and relate them
+with the main challenges within the fields of user modeling
+and content adaptation. Our goal is to provide for each research challenge, a brief description, a list of related SG examples, the steaming research questions that derive from it
+and previous contributions from research that address it.
+
+Effectiveness of Serious Games (SG) depends very
+much on their capacity to provide the right balance between gaming and educational experience. This requirement raises challenges regarding realization of their intelligence and personalization. We aim to overcome the
+problems of research fragmentation and identify some
+of the main issues by presenting a summary of relevant
+contributions from Artificial Intelligence and Personalization, together with a discussion on their future directions. In this paper, we summarize approaches to user
+and learning goals modeling, user engagement, various
+levels of game adaptation, how new sensors and mobile
+technology can better identify the context of the user,
+content adaptation and reusability.
+
+Research Questions and Challenges
+Identification
+We started by identifying two high level research questions
+for SG that include most of its multidisciplinary spectrum:
+• To what extent is the effectiveness and efficacy of learning
+supported and promoted via SGs?
+• How do we relate content (the factual knowledge
+contained, game mechanics) and context (experiences
+and activities) to pedagogical goals towards supporting
+pedagogically-driven design and development of SGs?
+
+Artificial Intelligence (AI) and Personalization are both essential aspects of all games, be they serious or entertainment
+based. In this research the role of AI and Personalization is
+however focused upon the context of Serious Games (SG) in
+particular. A concerted research direction is necessary in this
+area so as to establish future benchmarks and metrics for the
+effective use of AI and Personalization in serious games design and will benefit relevant research communities in providing clear goals and focus . While the transition of AI and
+Personalization approaches from research labs to SG products is clearly needed, this is an impact area where research
+in labs may have a real benefit and impact upon products
+and SGs on the market, as markets mature over the next few
+years.
+The work presented in this paper is a summary of the current results of an ongoing cooperation between 9 different
+institutions within a network of 28 research labs and 6 game
+developers are gathering their efforts to identify the hot topics for AI and Personalization within SG research. We first
+present our perspective on the main research questions faced
+
+From these two high-level questions we derived a more
+pragmatic approach to AI and Personalization based on: In
+what ways can personalization improve learning and adapt
+best to learner requirements?
+This questions allowed us to focus upon exploring how
+personalization undertaken on the fly and dynamically
+within games environments can specifically benefit the
+learner. This process involves two distinct challenges: User
+Identification and Content Adaptation.
+We consider User Identification as the process of identifying and inferring the characteristics of who is playing the
+game. Within this very broad research topic we focus especially on two sub topics that are extremely relevant for identifying a user and keep him actively involved in the interactive learning process: User Models for Interactive Learning
+and Detection of User Engagement.
+Content Adaptation can be used to provide an effective
+system response to who is playing the game, by presenting a
+
+Copyright c 2012, Association for the Advancement of Artificial
+Intelligence (www.aaai.org). All rights reserved.
+
+51
+
+for interactive learning has been implemented in the Travel
+in Europe and SeaGame projects (Bellotti et al. 2009a;
+2009b). There, the idea is that an AI runtime module called
+the Experience Engine dynamically creates missions as sequences of tasks that are dynamically assigned to the user
+in order to maximize the fulfillment of the requirements expressed by the teacher/game author. The user profile contains parameters such as: skill level, navigation ability (in
+particular, but not exclusively, for 3D environments), task
+type preferences, task type need, skill needs and preferences,
+learning styles needs/preferences (Bellotti et al. 2009c).
+
+personalized view of the game content and learning materials. We pay special attention to: Content Personalization to
+Learner, adaptation to User Experience and Learning Goals
+and Non-Player Characters in a Learning Environment.
+
+User Identification
+User Identification is key in current Technology Enhanced
+Learning systems since it allows enabling user adaptation,
+which is a necessary feature in order to increase effectiveness and efficiency of the instructional support.
+The basis for user identification is the definition of a
+model that abstracts the distinctive features of a user, so
+that it can be continuously updated by the system’s sensors
+while giving input to a personalization engine, that adapts
+the contents and their provision modalities to the elicited requirements. In this paper we also focus on detection of user
+engagement, since engagement is a major feature of games
+and serious games. In order to be effective (i.e., able to support knowledge and skill acquisition), SGs must be appealing and capable of motivating the player towards the activities that have an educational value, exploiting entertainment
+as a means to deliver instruction.
+
+Stemming Research Questions Which user models are
+more useful to the interactive learning process, and at what
+conditions? What variables should a user model include?
+What methods should be used to model the user? What measures should be taken in order to estimate in real-time the
+user? What techniques can be used to infer the users goals?
+Previous Contributions The importance of User Models has been discussed across several areas of research
+(Brusilovsky 2001; Donkers and Spronck 2006; Houlette
+2004; Yannakakis and Maragoudakis 2005), including for
+learning environments (del Blanco et al. 2010; Leutner
+1993). Even though the considerations on user models such
+as in (Brusilovsky 1996) and models such as Demographig
+Game Design (Bateman and Boom 1995 2012) represent important and well known contributions, the only SG specific
+model we found is in Travel in Europe and Seagame (Bellotti
+et al. 2009a, Bellotti et al. 2009b, Bellotti et al. 2009c), that
+we have outlined above. Given the limited-ness of the studies and evaluations, further research on user models for interactive learning in serious game settings is urgently needed.
+
+User Models for Interactive Learning
+The rationale behind user models for interactive learning
+consists in the need to properly adapt to different user learning styles and overall preferences. In this view, we first need
+to be able to conceptualize the user in terms of learning capabilities. The model consists of those parameters that more
+accurately characterize the specific users and/or categories.
+An established way of cataloguing learning styles was proposed by (Fleming and Mills 1992), that developed a theory VARK - that categorizes learners as: Visual learners
+(with a preference for tools such as pictures, concept maps),
+Aural learners (listening and discussion), Reading/Writingpreference learners( textual stimulus), and Kinesthetic or
+Tactile learners (movement and hands-on practice).
+A proper framework should include a module able to
+translate signals from physical (e.g., cameras, Electroencephalogram, etc.) and virtual sensors (e.g., answering to
+quizzes inside a game) into values filling a proper model
+mainly integrating learning styles and user preferences. This
+is the estimated status of the user.
+In order to adapt to different learning styles properly we
+first need to be able to conceptualize the user in terms of
+his learning capabilities and learning progress. In particular,
+it is necessary to investigate what the parameters are that
+more accurately characterize the user and their mapping to
+specific player categories.
+
+Detection of User Engagement
+User engagement is both a very particular aspect of game development, and of the success of learning applications. Research in user engagement can provide a very serious contribution to SGs by defining which user inputs are relevant to
+assess the user engagement in both the game and the learning process. Furthermore, the interaction between the assessment of the learning process and the assessment of the game
+experience will have an impact on the priorities of the AI
+strategies used to engage the user in a fun learning process.
+It is not just about to adapting to learning style but to the
+way users have fun, and maintain interest in playing a SG.
+Since SGs often provide a learner with complex multidimensional environments , adaption must be executed in
+real-time so as to continuously balance challenge against
+enjoyment as described in Csikszentmihalyi’s concept of
+”flow”(Csikszentmihalyi 1990). Flow is considered as an intrinsically enjoyable state characterised by deep concentration, enjoyment and often associated with altered sense of
+time and concern for one’s self(Sweester and Wyeth 2005).
+In this context, players affect and related states such as motivation, empathy and attention are also known to play a key
+role in influencing learning outcomes(Arroyo et al. 2009).
+
+SG Examples User model methods have been widely
+used in the context of Tutoring Systems (del Blanco et al.
+2010; Brusilovsky 1998; 2001; 1996; Burgos et al. 2007;
+Donkers and Spronck 2006; Houlette 2004; Yannakakis and
+Maragoudakis 2005). Despite their diffusion in such systems
+and the fact that they should be a fundamental technique
+also in Serious Games, the scientific references to them are
+not common. The major example of SG using user modeling
+
+52
+
+However, for these algorithms to provide reliable data (to
+an extent), it is necessary to carry out a large amount of
+data gathering, system training and computationally intensive off-line processing. In the particular context of real-time
+SG applications, it is wholly unrealistic to project implementing heavy, data hungry algorithms. Thus, trade-offs and
+concessions must be made between 1) The spectrum of detection (granularity) and the amount of data gathered and 2)
+Detection accuracy and processing time. Realistically, current state-of-the-art in signal processing would only allow
+for a real-time algorithm to detect general states such as
+alertness or arousal with a low degree of reliability. It is clear
+for now that signals detected through these algorithms need
+to be correlated with task-based performance indexes such
+as success rates, speed or reliability.
+
+And the development of serious game adaptive technologies is a non-trivial task. Hocine et al. (Hocine and Gouaich
+2011) identified the following challenges:
+1. A game should adapt to a players competency levels.
+Users are likely to express a wide range of cognitive and
+motor skills affecting both their preferences and performances during game-play. Serious Games must not only
+take into account their ability to play the game but their
+existing knowledge of the subject domain (Conati and
+Zhao 2004). Games that either supersede or fail to meet
+a players capacity are likely to fail to maintain player engagement [6].
+2. Adaptation must meet real-time performance constraints.
+Consequently, any performance overhead added by the
+use of adaptive technology must be limited to maintain
+response time and interaction quality [7].
+
+Content Adaptation
+
+3. Maintain flow or immersion in the game. While a design
+constraints, the notion of flow and game-play must be
+taken into account in the choice of pedagogical approach
+or exercise-based gaming activity.
+
+Content Adaptation enables SGs to realize the final step of
+in-game player personalization. Steered by the underlying
+data and models stemming from User Identification, content
+adaptation uses this data to generate or customize personalized game content.
+
+4. Correctly Balancing ludic and pedagogical content.
+Kickmeier-Rust et al. (Kickmeister-Rust and Albert 2012)
+stated that the ultimate goal of serious game design must
+be the achievement of the learning objectives and that
+game-play motivational aspects only serve so as to support this goal. Hence, It is not simply enough to have a
+player continually engaged with a SG if it does not result
+in the appropriate pedagogical gains for the player (Rowe
+et al. 2009). We must take advantage of the other game
+elements to provide an efficient learning environment.
+
+Content Personalization to Learner
+In order to change how content is presented and effectively
+adapt to the user, SGs include knowledge on what learning styles have been classified and what content presentation
+strategies map to each of them. Typically, a supporting user
+model is responsible for dynamically assigning the player to
+these different learning styles and strategies. The appropriate
+strategies can then be applied by a specialized component
+(e.g. centralized AI managers, content generators, agent organization frameworks), which constructs and presents the
+personalized content to the player.
+
+The game-play/pedagogy relationship described above
+lies on whether or not ludic and pedagogical content are
+contributing to an efficient and engaging educational experience. In this context, research in this area should primarily
+focus on measuring the contribution of these elements towards both learning and enjoyment.
+
+SG Examples Content personalization techniques are
+used in two serious game examples which are part of two
+previous European projects. Several publications regarding techniques used to adapt the interactive application to
+the learner have been reported in the projects The 80 days
+Project (80D ; Kickmeier-Rust, Göbel, and Albert 2008)and
+the Elektra Project (Elektra ; Kickmeier-Rust et al. 2006)
+Additionally, in(Hullett and Mateas 2009), such techniques were also used in scenario generation applied to
+emergency rescue training games. Furthermore, earlier work
+from (Magerko, Stensrud, and Holt 2006) and (Niehaus and
+Riedl 2009) supports the generation of personalized scenarios in military training games.
+(Bellotti et al. 2009a) describe the Experience Engine, a
+runtime content delivery management engine, designed to
+optimize the serious game experience, joining educational
+value and entertainment. Personalised conditions for presentation of different content in interactive TV-based serious
+games are presented in (Bellotti et al. 2001).
+
+SG Examples EU-funded ALICE game(ALI )
+Stemming Research Questions Which user models are
+more useful to the interactive learning process? What variables should a user model include? What methods can and
+should be used to model the user? What techniques can be
+used to infer the users goals?
+Previous Contributions Fairclough (Fairclough 2007)
+discussed potential elements for the measurement of realtime relevant brain activities for Brain Computer Interface
+(BCI). Additionally, a number of EEG-based algorithms
+have been developed towards detecting and monitoring user
+engagement(Chaouachi et al. 2010; Russell, Weiss, and
+Mendelsohn 1989; Liu et al. 2010; Prinzel III et al. 2003) so
+as to develop autonomous adaptive systems. Through these
+algorithms, it is possible to identify to an extent levels of
+vigilance, anxiety, arousal or engagement.
+
+Stemming Research Questions How, when and which
+content should adapt to the player?
+
+53
+
+Previous Contributions Part of the answer to this topic
+is found on the previous one, especially in Interactive Storytelling, since it is by design a mechanism which guides
+the user throughout its experience. By combining the learning goals and the fun goals in this process the two sides of
+the user experience are balanced. However, three more areas
+are fundamental to address it: Natural Language Processing,
+Strategy Formulation and Learning Adaptation and Intelligent Tutoring Systems.
+The Natural Language Processing, plays an important part
+since it provides to non player characters the ability to converse with users using natural language, a much more natural way of communicating for humans. Several techniques
+can be used to improve natural language processing in a system.
+Regarding Strategy formulation, even though mainly used
+in commercial games the techniques under this topic enable
+AI to adapt strategies to the user, this upkeep the original
+goals of the AI (in a learning context those might be learning goals!). In doing so, provides means for games to avoid
+becoming predictable and boring.
+The Learning Adaptation and Intelligent Tutoring Systems techniques have been widely used outside the gaming
+field. However, in combination with Interactive Storytelling
+they provide important methodologies to manage user experience.
+
+Previous Contributions The answer on how to adapt content to the user entails different strategies. Each strategy is
+derived from the different aspects to which the user has access in the game (both interactively or just visually). As
+such, a complete answer should cover a wide range of
+methodologies and techniques. In this paper we will only
+discuss some that we found more relevant: Interactive Storytelling, Procedural Level Generation and Adaptive Game
+Balancing.
+Interactive Storytelling is a medium where a user can influence the narrative and its evolution, in real-time, and as
+such, the game surrounding content can be adapted to the
+user. The approaches taken by researchers to adapt story
+knowledge to dynamic interactive environments fall between two extremes: Character Centered Approaches: all
+story knowledge is encoded in the character’s AI. (Cavazza
+et al. 2002) and Mediated Approaches: conflicts between
+story development and user interaction are managed by a
+special entity called the mediator.(Figueiredo et al. 2008;
+Mateas and Stern 2003; Saretto and Young 2001)
+In Procedural Level Generation the adaptation occurs
+through the generation of content tailored specifically to
+the users characteristics. This tailored content can refer to
+both: (i) training/teaching scenarios and missions and (ii)
+game worlds and its objects. As recently surveyed in (Lopes
+and Bidarra 2011), many approaches are already being researched, e.g. evolutionary algorithms, semantic modeling
+or answer-set programming.
+Adaptive Game Balancing is an effective adaptation
+method, where game features (typically the challenge level)
+are adjusted to player performance. The standard approach
+for this is Dynamic Difficulty Adjustment, a technique
+where AI behavior is automatically balanced to match the
+measured player ability (e.g. using case-based algorithms).
+
+Non-player Characters in Learning Environments
+The personalization of game content includes the adaptation
+of all the interaction modalities found in games(Peirce, Conlan, and Wade 2008). Since NPCs are currently one of the
+most relevant elements of game interaction we should carefully address their impact on the learning goals while designing and creating NPCs for educational purposes. The central
+goal for NPCs is believability through natural behaviors and
+intelligent interaction(Zielke et al. 2009).
+
+User Experience and Learning Goals
+Alongside with adaptability to the user’s learning capabilities is the capacity to support the user, both task and emotion
+wise. Such adaptation is a delicate balance between satisfying both user and tutors intentions.
+
+SG Examples Currently there are several SG which make
+use of NPC AI in order to create personalized and more realistic learning environments. In the area of negotiation skills
+for specific cultural contexts there is Elect Bilat(Hill Jr et
+al. 2006) making use of tutoring technology, dialogue manager and social simulation to create more realistic NPCs and
+provide intelligent interactions for the user. Another example is the utilization of crowd simulation is the riot control
+scenario of the ADMS SG from ETC Simulation.
+
+SG Examples The application of techniques to balance
+the fun and learning experiences can be found in two
+games. One is from the Elektra Project addressing the players immersion versus the game based learning(Elektra ;
+Kickmeier-Rust et al. 2006)
+Another example is the serious game Crystal Island is an
+environment that supports an inquiry-based approach, where
+the story is a sort of a container of elements to be taken in
+considerations in order for the player to solve problems in
+the domain of biology (Mott and Lester 2006).
+
+Stemming Research Questions Which non-player character behavior models are best suited for interacting with a
+learner/user?
+Previous Contributions Throughout our survey of techniques there are three areas which offer fundamental contributions to the topic of NPCs: Artificial Tutors, NPC Competitors and Crowds.
+The Artificial Tutors are mainly applied through NPCs
+for collaboration with the user or pedagogical agents. These
+play an important role for several serious games purposes:
+
+Stemming Research Questions How can we maintain an
+engaging user experience inside the intended learning experience boundaries? How can techniques from diverse areas
+of AI engage the player? How can the techniques still support the learning experience while supporting engagement?
+
+54
+
+SFRHBD/37476/2007 and SFRHBD/66663/2009.
+
+educational and motivational support, emotional regulation,
+improvement of fun/immersion and instantiation for collaboration. Models for tutoring agents(Nunes et al. 2010;
+Kickmeier-Rust and Albert 2010) address important challenges which emerge from the needed interdisciplinary work
+from HCI, pedagogy and psychology.
+The NPC competitors, complement the universe of roles
+of the Artificial Tutors by empowering NPCs the capabilities to undertake antagonistic tasks regarding the learner.
+The competitive nature is frequently useful in learning environments for the creation of required challenges (examples
+chess adversary, terrorist npc, mob npc), where the agents
+must be able to plan strategies for challenge creation.
+Crowds NPCs (Anderson et al. 2009; Thalmann et al.
+2004) bring the behavioral issue to the context of a high
+number of characters, alongside with its own set of challenges such as simulation performance and variability of the
+generated behaviors. However, when properly applied (human like behaviors, as it has seen in numerous techniques)
+create a very impressive added value to the believability of
+a learning environment. Imagine a SG where you learn the
+taks of a mob control policeman where the mob to be controlled is composed of just 5 or 6 NPCs. The believability
+and impact of this simulation will be drastically reduced
+when compared with another situation where you have hundreds of NPCs.
+The different types of NPCs for SG presented are complimentary, in the sense that they can provide a SG different
+aspects to NPCs believability (individual and social) and immersion(Zielke et al. 2009).
+
+References
+80 days eu project http://www.eightydays.eu/ last checked:
+July, 4th 2012.
+Alice project, http://www.aliceproject.eu/ last checked:
+July4th, 2010.
+Anderson, E.; McLoughlin, L.; Liarokapis, F.; Peters, C.;
+Petridis, P.; and de Freitas, S. 2009. Serious games in cultural heritage. In The 10th International Symposium on Virtual Reality, Archaeology and Cultural Heritage VAST-State
+of the Art Reports.
+Arroyo, I.; Muldner, K.; Burleson, W.; and Woolf, B. 2009.
+Designing affective support to foster learning, motivation,
+and attribution. In Closing the Affective Loop in Intelligent
+Learning Environments Workshop at the 14th International
+Conference on Artificial Intelligence in Education. Brighton,
+UK.
+Bateman, C., and Boom, R. 1995-2012. 21st Century Game
+Design. LAVOISIER S.A.S.
+Bellotti, F.; Berta, R.; Gloria, A.; and Ozolina., A. 2001. Investigating the added value of interactivity and serious gaming for educational tv. Elsevier, Computers & Education
+57:1137–1148.
+Bellotti, F.; Berta, R.; De Gloria, A.; and Primavera, L.
+2009a. Adaptive experience engine for serious games.
+IEEE Transactions on Computational Intelligence and AI in
+Games 1(4):264–280.
+Bellotti, F.; Berta, R.; Gloria, A. D.; and Primavera, L.
+2009b. Enhancing the educational value of video games.
+Comput. Entertain. 7(2):23:1–23:18.
+Bellotti, F.; Berta, R.; Gloria, A. D.; and Primavera, L.
+2009c. A task annotation model for sandbox serious games.
+In Proceedings of IEEE Symposium on Computational Intelligence and Games (CIG 2009), 233–240.
+Brusilovsky, P. 1996. Methods and techniques of adaptive
+hypermedia. User Modeling and User-Adapted Interaction
+6:87–129.
+Brusilovsky, P. 1998. Adaptive educational systems on the
+world-wide-web: A review of available technologies. In
+Proceedings of Workshop ”WWW-Based Tutoring” at 4th
+International Conference on Intelligent Tutoring Systems
+(ITS’98).
+Brusilovsky, P. 2001. Adaptive hypermedia. User Modeling
+and User-Adapted Interaction 11:87–110.
+Burgos, D.; Moreno-Ger, P.; Sierra, J. L.; FernándezManjón, B.; and Koper, R. 2007. Authoring game-based
+adaptive units of learning with ims learning design and ¡eadventure¿. International Journal of LEarning Technologies
+3(3):252–268.
+Cavazza, M.; ; Charles, F.; and Mead, S. 2002. Characterbased interactive storytelling. IEEE INTELLIGENT SYSTEMS 17:17–24.
+Chaouachi, M.; Chalfoun, P.; Jraidi, I.; and Frasson, C.
+2010. Affect and mental engagement: Towards adaptability for intelligent systems. In AAAI.
+
+Conclusions
+AI and personalization are crucial aspects of SG, but their
+effective and efficient design and implementation still represent major challenges. To achieve various pedagogical goals
+in different educational contexts, it is important to simplify
+the process of authoring and adjustment of SG by people
+without programming skills. In this paper we have identified
+several research topics that we consider relevant in this field,
+like identification of learning goals, user modelling and engagement, as well as different levels of game adaptation.
+They should be further investigated and realized, in order
+to support effective and efficient design, development, and
+deployment of SG.
+If we want to take into account various factors that influence these complex processes, multidisciplinary research is
+required. Our aim is to use the opportunity that the GALA
+Network of Excellence on Serious Games is providing us
+from this perspective, and proceed with more in depth investigation and analysis of the key issues, some of which we
+have outlined in this paper. We hope this endeavour will help
+to reduce the gap between SG research and SG industry.
+
+Acknowledgments
+Work supported by GaLA (Games & Learning Alliance)
+Network of Excellence funded by the EU in FP7-ICT-20095 under grant agreement no: 258169; FCT (INESC-ID multiannual funding) PIDDAC Program funds. PhD grants FCT
+
+55
+
+Kickmeister-Rust, M., and Albert, D. 2012. An Alien’s
+Guide to Multi-Adaptive Educational Computer Games.
+UIU-CADUI.
+Leutner. 1993. Guided discovery learning with computerbased simulation games: Effects of adaptive and nonadaptive instructional support. In Learning and Instruction,
+113–132. Elsevier.
+Liu, Y.; Kosmadoudi, Z.; Sung, R.; Lim, T.; Louchart, S.;
+and Ritchie, J. 2010. Capture user emotions during
+computer- aided design,. In Proceedings of the Integrated
+Design and Manufacturing in Mechanical Engineering (IDMME) and Virtual Conference.
+Lopes, R., and Bidarra, R. 2011. Adaptivity challenges
+in games and simulations: a survey. IEEE Transactions on
+Computational Intelligence and AI in Games 3(2):85 –99.
+Magerko, B.; Stensrud, B.; and Holt, L. 2006. Bringing the
+schoolhouse inside the box - A tool for engaging, individualized training. In Proceedings of the 25th Army Science
+Conference. ASC.
+Mateas, M., and Stern, A. 2003. Façade: An experiment in
+building a fully-realized interactive drama. In Game Developers Conference, Game Design track.
+Mott, B. W., and Lester, J. C. 2006. U-director: a decisiontheoretic narrative planning architecture for storytelling environments. In Proceedings of the Fifth International Joint
+Conference on Autonomous Agents and Multi-agent Systems
+(AAMAS 2006), 977–984.
+Niehaus, J., and Riedl, M. O. 2009. Scenario adaptation:
+An approach to customizing computer-based training games
+and simulations. In Proceedings of the AIED 2009 Workshop
+on Intelligent Educational Games, 89–98.
+Nunes, M.; Dihl, L.; Fraga, L.; Woszezenki, C.; Oliveira,
+L.; Francisco, D.; Machado, G.; Nogueira, C.; and Notargiacomo, M. 2010. Animated pedagogical agent in the intelligent virtual teaching environment. Digital Education Review (4):53–61.
+Peirce, N.; Conlan, O.; and Wade, V. 2008. Adaptive educational games: Providing non-invasive personalised learning
+experiences. In Digital Games and Intelligent Toys Based
+Education, 2008 Second IEEE International Conference on,
+28–35. Ieee.
+Prinzel III, L.; Freeman, F.; Scerbo, M.; Mikulka, P.; and
+A.T, P. 2003. Effects of a psychophysiological system
+for adaptive automation on performance, workload, and the
+event-related potential p300 component. Human Factors
+45(4):601–614.
+Rowe, J.; McQuiggan, S.; Robinson, J.; and Lester, J. 2009.
+Off-task behaviour in narrative-centered learning environments. In 14th International Conference of Artificial Intelligence and Education, 99–106.
+Russell, J. A.; Weiss, A.; and Mendelsohn, G. A. 1989. Affect grid: a single-item scale of pleasure and arousal. Journal
+of Personality and Social Psychology 493–502.
+Saretto, C., and Young, M. R. 2001. Mediation in mimesis
+liquid narratives. In Proceedings of the 39th ACM Southeast
+Conference, 120–126.
+
+Conati, C., and Zhao, X. 2004. Building and evaluating an
+intelligent pedagogical agent to improve the effectiveness
+of an educational game. In Proceedings of the 9th international conference on Intelligent user interfaces, IUI ’04,
+6–13. New York, NY, USA: ACM.
+Csikszentmihalyi, M. 1990. Flow: The Psychology of Optimal Experience. New York: Harper and Row.
+del Blanco, Á.; Torrente, J.; Moreno-Ger, P.; and FernándezManjón, B. 2010. Integrating adaptive games in studentcentered virtual learning environments. Distance Education
+Technologies 8(3).
+Donkers, J., and Spronck, P. 2006. Preference-based player
+modeling. In AI Game Programming Wisdom 3, 647 – 659.
+Boston, MA: Charles River Media.
+Elektra. Elektra project, http://www.elektra-project.org/
+lastchecked: July, 4th 2012.
+Fairclough, S. H. 2007. Psychophysiological inference
+and physiological computer games. In Brainplay’07: BrainComputer Interfaces and Games.
+Figueiredo, R.; Brisson, A.; Aylett, R.; and Paiva, A. 2008.
+Emergent stories facilitated: An architecture to generate stories using intelligent synthetic characters. In International
+Conference on Interactive Digital Storytelling. (ICIDS). Erfurt: Springer.
+Fleming, N., and Mills, C. 1992. Not another inventory,
+rather a catalyst for reflection. To Improve the Academy
+11:147–149.
+Hill Jr, R.; Belanich, J.; Lane, H.; Core, M.; Dixon, M.; Forbell, E.; Kim, J.; and Hart, J. 2006. Pedagogically structured
+game-based training: Development of the elect bilat simulation. Technical report, DTIC Document.
+Hocine, N., and Gouaich, A. 2011. Agent programming and
+adaptive serious games: A survey of the state of the art. In
+10th Int. Conf. on Autonomous Agents and Multiagent Systems.
+Houlette, R. 2004. Player modeling for adaptive games.
+In AI Game Programming Wisdom 2. Boston, MA: Charles
+River Media.
+Hullett, K., and Mateas, M. 2009. Scenario generation for
+emergency rescue training games. In Proceedings of the 4th
+International Conference on Foundations of Digital Games.
+Kickmeier-Rust, M., and Albert, D. 2010. Micro-adaptivity:
+protecting immersion in didactically adaptive digital educational games. Journal of Computer Assisted Learning
+26(2):95–105.
+Kickmeier-Rust, M. D.; Kickmeier-Rust, M. D.; Schwarz,
+D.; Albert, D.; Verpoorten, D.; Castaigne, J.-L.; and Bopp,
+M. 2006. The elektra project: Towards a new learning experience. M3 – Interdisciplinary Aspectcs on Digital Media &
+Education.
+Kickmeier-Rust, M. D.; Göbel, S.; and Albert, D. 2008.
+80days: Melding adaptive educational technology and adaptive and interactive storytelling in digital educational games.
+In Proceedings of the First International Workshop on StoryTelling and Educational Games (STEG’08).
+
+56
+
+Sweester, P., and Wyeth, P. 2005. Gameflow: A model for
+evaluating player enjoyment in games. ACM Computer in
+Entertainment 3(3).
+Thalmann, D.; Hery, C.; Lippman, S.; Ono, H.; Regelous,
+S.; and Sutton, D. 2004. Crowd and group animation. In
+ACM SIGGRAPH 2004 course notes, 34. ACM.
+Yannakakis, G., and Maragoudakis, M. 2005. Player modeling impact on player’s entertainment in computer games. In
+User Modeling, volume 3538 of Lecture Notes in Computer
+Science, 74–78. Berlin: Springer.
+Zielke, M.; Evans, M.; Dufour, F.; Christopher, T.; Donahue,
+J.; Johnson, P.; Jennings, E.; Friedman, B.; Ounekeo, P.; and
+Flores, R. 2009. Serious games for immersive cultural training: Creating a living world. Computer Graphics and Applications, IEEE 29(2):49–60.
+
+57
+
+

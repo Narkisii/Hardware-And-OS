@@ -1,0 +1,249 @@
+Augmented and personalized digital narratives for Cultural Heritage
+under a tangible interface
+Georgios Trichopoulos1, John Aliprantis1, Markos Konstantakis1, Konstantinos Michalakis1, Phivos Mylonas2
+Yorghos Voutos2 and George Caridakis1
+1
+
+University of the Aegean, Mytilene, Greece
+Department of Cultural Technology and Communication
+Intelligent Interaction Research Group
+2
+
+Ionian University
+49100 Corfu, Greece
+gtricho@aegean.com, jalip@aegean.gr, mkonstadakis@aegean.gr,
+kmichalakis@aegean.gr,fmylonas@ionio.gr, c16vout@ionio.gr,gcari@aegean.gr
+
+Abstract
+Digital storytelling is widely used to enhance the process of integrating images, music, narrative and voice along with
+traditional storytelling methods. In recent years, newer visualization technologies such as Augmented and Virtual Reality allow
+more vivid representations and further influence the way museums present their cultural heritage through interactive narratives.
+Nowadays, many cultural institutions aim towards integrating such technologies to provide a more engaging experience, which
+is also tailored to the user by exploiting personalization and context awareness. In this work, the authors present the CHATS
+platform, a system for personalized digital storytelling in cultural heritage sites, enhanced with state-of-the-art visualization
+techniques. Technologies of AR and Smart Glasses are used to enhance visitors' experience, while also context-aware and
+personalization methods are used to provide cultural information based on user’s profiles and interests.
+
+Keywords: Digital Storytelling, narratives, tangible Cultural Heritage, context aware, personalization, augmented reality
+
+1
+
+Introduction
+
+Digital storytelling is a widely used method for people all over the world to engage emotionally, communicate
+and project elements from their culture and personality, and share them with their companions. Humans can really
+benefit from their own stories, mentally and emotionally, and after all these years, they still learn and improve on
+telling stories (Kasunic An. et al., 2018). Narratologists agree that to constitute a narrative, a text must tell a story,
+exist in a world, be situated in time, include intelligent agents, and have some form of a causal chain of events,
+while also it usually seeks to convey something meaningful to an audience (Ryan et al., 2015).
+Not only humans but also cultural institutions can be considered as “natural storytellers” (Bedford, 2001). In
+recent years, museums aim at making their exhibits more appealing and engaging to an increasing variety of
+audiences while also nurturing their role in conservation, interpretation, education, and outreach (Roussou M. et
+al., 2015). The utilization of multimodal storytelling mechanisms, in which digital information is presented
+through multiple communication ways/media (multimedia) is considered as a supplement to physical/traditional
+heritage preservation, activating users’ involvement/collaboration in integrated digital environments (Psomadaki
+et al., 2019).
+Digital Storytelling derives its engaging power by integrating images, music, narrative and voice together, thereby
+giving deep dimension and vivid colour to characters, situations, experiences, and insights (Abas and Zaman,
+2010). Therefore, modern technologies such as Augmented Reality (AR) and Virtual Reality (VR) can influence
+the way museums to present their narratives and display their cultural heritage information to their visitors. AR
+can be seen as a form of mediation using interaction and customization that supports a form of narratives, where
+visitors can engage or even create their own narrative scenarios in their cultural tour.
+Furthermore, personalized CH applications require the system to collect user data while also considering the
+environmental current parameters, and then process them in order to tailor the user experience. Context-awareness
+methods can address this requirement, by enhancing the interaction between humans and machines and adding
+perception of the environment, which eventually leads to intelligence (Abowd et al, 1999). The context in the
+
+cultural space domain can include many features such as location, profiles, user movement and behaviour and
+environmental data (Not & Petrelli, 2018).
+This paper presents the CHATS (Cultural Heritage Augmented and Tangible Storytelling) project, a platform that
+combines Augmented Reality and Tangible Interactive Narratives. The project analysed here is based on a famous
+painting named “Children’s Concert”, by G. Jacovides, and on a previous project in which 3D models representing
+the painting's characters and objects were created (Trichopoulos et al., 2018). CHATS project aims to contribute
+to the tangible IN field, which still presents a potential for cultural heritage and other applications. It is a hybrid
+architecture that combines state-of-the-art technologies along with tangible artefacts and shows usability and
+expandability to other areas and applications, at a relatively low cost.
+
+2 Related work
+A tangible Narrative is a special form of interactive and digital storytelling technique using tangible objects to
+augment the experience and impart meaning in the field of cultural heritage. Ubiquitous computing poses an
+opportunity for interactive storytelling. By connecting with tangibles instead of just a visual interface, the audience
+reacts stronger emotionally to the story. There have been various applications applying tangible storytelling
+techniques, almost exclusively addressing the problem of presenting appropriate storytelling content to each user.
+For example, the “Stolen Painting” (Konstantakis, 2019) and the EMOTIVE project (Katifori, 2018) engage
+visitors, trigger their emotions, connect them to other people around the world, and enhance their understanding,
+imagination and, ultimately, their experience of cultural sites and content in creating narratives and experiences
+which draw on the power of ‘emotive storytelling’, both on-site and virtually. Also, “Sail with Columbus” is an
+interactive and tangible storytelling project designed for a Nautical Museum. Its goal is to communicate to the
+museum visitors how medieval men sailed in the past (Ciotoli, 2021). Lilja (2014) focuses on how a single
+installation can enhance the personalization of the information in cultural heritage museums and enhance the
+overall experience using interactive digital storytelling and the ability to touch artefacts. Interaction design
+methods helped establish best practices centring on usability. Furthermore, meSch project1, has the goal of
+designing, developing, and deploying tools for the creation of tangible interactive experiences that connect the
+physical dimension of museums and exhibitions with relevant digital cross-media information in novel ways (Not
+& Petrelli, 2018).
+
+3 CHATS - Cultural Heritage Augmented and Tangible Storytelling
+The Cultural Heritage Augmented and Tangible Storytelling (CHATS) platform includes, as main points of
+interaction, tangible objects which represent exhibits of a cultural collection. 3D printing can be exploited to
+produce copies of sufficient fidelity. The platform can be installed in GLAMs which include paintings, artworks,
+books, and museum artefacts in their exhibitions. The complete architecture of CHATS is illustrated in Figure 1.
+At the core of the CHATS architecture lies the sensory network, which, following the IoT paradigm, allows smart
+interaction between users and the system. The type and number of sensors comprising the network depend on the
+requirements of each scenario and the desired level of interaction, such as the sensitivity, accuracy, and detail of
+interactive activities. The server collecting the sensory data may be local or exploiting cloud technology. The most
+typical use of sensors includes the identification of proximity and other interactions such as touching objects,
+moving hands around objects, causing sounds etc. Apart from sensing devices, the sensory network also includes
+actuators which manifest the platform’s reaction, such as playing sounds or projecting images. Such events are
+usually triggered by user actions or context-aware procedures.
+The visitors begin their interaction with CHATS as soon as they enter the area, with the help of sensors that capture
+user proximity via BLE technology. This is achieved by providing a BLE tag to each visitor at the time of entry
+in the cultural site. A BLE transceiver, hidden in a construction that supports the interaction, is automatically
+paired with the tag and correlates movement with the user. The localization process described above is performed
+
+1
+
+https://www.mesch-project.eu/about/
+
+in the Localization module, which is responsible to acquire the localization data from the BLE infrastructure and
+the behavioural data that capture user activity. The localization information is shared with the Digital Storytelling
+module, in order to trigger the appropriate actions.
+The procedures related to interaction with artefacts are primarily tackled by Arduino controllers, which are
+embedded in the construction of the artefact. Sensors integrated in the Arduino controller, such as motion
+detectors, stream their data continuously to the server. Data useful for the user interaction are kept, while redundant
+data are discarded. The combination of localization and behaviour data along with personalization and other
+profiled data allowed the dynamic selection of the story trajectory that best suits the scenario.
+
+Figure 1. CHATS architecture
+Personalization is performed by the equivalent module, which is responsible for executing the appropriate
+procedures, which include the acquisition of profiled data either stored in the database or directly from the user.
+The persona of the user is identified and associated with a profile that is relevant to the application at hand. The
+Personalization module outputs the result of the process to the Digital Storytelling module in order to provide a
+more engaging and personalized user experience.
+Finally, the Digital Storytelling module, residing at the centre of the CHATS architecture, receives the output
+from all the other modules, analyses the incoming information and delivers appropriate content to the user.
+Typically, a mobile device is exploited to output the content from the Digital Storytelling module, but CHATS
+may also be applied to less traditional devices. Smart glasses offer exciting ways to deliver content, exploiting the
+Augmented Reality (AR) technology. AR content combined with binaural audio for narratives enhances the
+visitor’s experience.
+
+4 Case Study
+To test CHATS, a famous painting, found in the Greek National Gallery in Athens, was chosen. This painting,
+entitled “Children’s concert” by George Jacovides, depicts a scene in which some children are playing music for
+an infant and its mother. There is a humorous feeling in the painting as one of the children is blowing air into a
+watering can. 3D representation of the painting was already made in a previous project called ARTISTS
+(Trichopoulos et al., 2018) and the characters involved were 3D printed and used to construct a scale model. Detail
+and accuracy of the printed characters were never a scope of the project, as all the process of 3D modelling and
+printing was done for experimenting.
+The final constructed diorama works as a user interface, offering multiple interactions. It can sense the presence
+and proximity of multiple people carrying a tag and users can touch it, put their hands on it and play as the
+interactions and movements trigger sounds - a narrative.
+
+Standard PLA material was used for printing the characters and other objects (table, chair), and Arduino sensors
+were put inside (where possible) or on the models. Arduino was chosen as a popular, inexpensive, and versatile
+platform and the sensors used were ultrasonic distance sensor, capacitive touch sensor, and Bluetooth BLE
+beacons. The chosen Arduino controller was the Mega 2560, one of the most used Arduino boards.
+Everything was placed and glued on a wooden surface, in a way that the painting is being represented as accurately
+as possible. The whole diorama space is divided into two areas, A and B according to the two ultrasonic sensors
+located there, and when users enter these areas or touch one of the models, new interactions occur that change the
+flow of the narrative. The character hosting the touch sensor is the one that is positioned at the closest position to
+the visitors, while another character hosts the Bluetooth receiver.
+The actual interaction with the painting’s tangible representation occurs involuntarily before users touch or even
+approach the models. Visitors are expected to carry a BLE tag and pairing with the Bluetooth sensor happens
+automatically at a distance within the technical specifications of BLE. This initial pairing triggers the first audio
+message from the painting, which welcomes and attracts visitors.
+At the second level of interactivity, users can enter by hand into the area around the models or touch them. These
+interactions trigger short narratives about the painting, in the form of sound. These narratives are based on historic
+facts but are also enriched with fictional features. If a whole group of people (more than one) is nearby and
+interacting with the diorama, narratives change accordingly.
+Augmented Reality (AR) techniques are utilized to digitally visualize data from the narratives. Technologies of
+AR smart glasses in combination with binaural audio recordings were chosen for an immersive and engaging user
+experience, combining digital storytelling in 3D virtual immersive learning environments (Mystakidis and Berki,
+2018). Data from sensors during user’s interactions dynamically change the visual and audio information available
+through the smart glasses, while also improving the physical interaction with the system.
+
+5 Conclusion
+This research work proposes CHATS architecture for personalized digital storytelling techniques on tangible
+objects. CHATS combines storytelling techniques such as narratives, augmented reality visualization and binaural
+audio in a dynamic environment that augments cultural user experience. Shaping personalization in a digital
+storytelling scenario of tangible interaction for cultural heritage involves challenges that go well beyond the
+requirements of implementing content personalization. Content is coupled with the physical experience of the
+objects, the space, and the facets of the context acquire a more prominent role.
+The proposed architecture was assessed in a use case including 3D printed objects that represented figures of a
+George Jacovides painting, named “Children’s concert”. The tangible reproduction of painted characters allowed
+a realistic representation of the scene described in the painting, providing new and stimulating implementations
+of digital storytelling consociated with the scene.
+Future work will be the evaluation and revalidation of the CHATS project in order to invest effort in providing
+different users with the right information at the right time and with the most effective type of interaction. We
+believe that the direct involvement of cultural heritage professionals in the co-design of CHATS technology, as
+well as the extensive evaluation with users in field studies, will be instrumental in shaping a holistic approach to
+personalization that exploits in full the new opportunities offered by the tangible digital storytelling interaction.
+
+Acknowledgements
+This research was co-financed by the European Union and Greek national funds through the Competitiveness,
+Entrepreneurship and Innovation Operational Programme, under the Call “Research-Create-Innovate”; project
+title: “Development of technologies and methods for cultural inventory data interoperability—ANTIKLEIA”;
+project code: T1EDK-01728; MIS code: 5030954.
+
+References
+1.
+
+2.
+
+3.
+4.
+
+5.
+6.
+7.
+
+8.
+9.
+
+10.
+11.
+
+12.
+
+13.
+
+14.
+
+Abas, H., & Zaman, H. B. (2010, May). Digital storytelling design with augmented reality technology for remedial
+students in learning Bahasa Melayu. In Global Learn (pp. 3558-3563). Association for the Advancement of
+Computing in Education (AACE).
+Abowd, G. D., Dey, A. K., Brown, P. J., Davies, N., Smith, M., & Steggles, P. (1999, September). Towards a better
+understanding of context and context-awareness. In International symposium on handheld and ubiquitous computing
+(pp. 304-307). Springer, Berlin, Heidelberg.
+Bedford Leslie. (2001). Storytelling: The Real Work of Museums. Curator: The Museum Journal. 44. 27 - 34.
+10.1111/j.2151-6952.2001.tb00027.x.
+Ciotoli Luca, Alinam Mortaza, Torre Ilaria. 2021. Sail with Columbus: Navigation through Tangible and Interactive
+Storytelling. CHI Italy 2021: 14th Biannual Conference of the Italian SIGCHI Chapter (CHItaly '21). Association
+for Computing Machinery, New York, NY, USA, Article 32, 1–6. DOI:https://doi.org/10.1145/3464385.3464741.
+Kasunic Anna, Kaufman, Geoff (2018). Learning to Listen: Critically Considering the role of AI in Human
+Storytelling and Character Creation, 10.18653/v1/W18-1501.
+Katifori, Akrivi, et al. "The EMOTIVE Project-Emotive Virtual Cultural Experiences through Personalized
+Storytelling." Cira@ euromed. 2018.
+Konstantakis, M., Kalatha, E., & Caridakis, G. (2019, November). Cultural Heritage, Serious Games and User
+Personas Based on Gardner’s Theory of Multiple Intelligences: “The Stolen Painting” Game. In International
+Conference on Games and Learning Alliance (pp. 490-500). Springer, Cham.
+Lilja, J. (2014). Interactive digital storytelling and tangibility in cultural heritage museums.
+Mystakidis, S., & Berki, E. (2018). The case of literacy motivation: Playful 3D immersive learning environments
+and problem-focused education for blended digital storytelling. International Journal of Web-Based Learning and
+Teaching Technologies (IJWLTT), 13(1), 64-79.
+Not, Elena, and Daniela Petrelli. "Blending customisation, context-awareness and adaptivity for personalised
+tangible interaction in cultural heritage." International Journal of Human-Computer Studies 114 (2018): 3-19.
+Psomadaki, O. I., Dimoulas, C. A., Kalliris, G. M., & Paschalidis, G. (2019). Digital storytelling and audience
+engagement in cultural heritage management: A collaborative model based on the Digital City of Thessaloniki.
+Journal of Cultural Heritage, 36, 12-22.
+Roussou, M., Pujol, L., Katifori, A., Chrysanthi, A., Perry, S. and Vayanou, M. (2015). The Museum as Digital
+Storyteller: Collaborative Participatory Creation of Interactive Digital Experiences. In: Annual Conference of
+Museums and the Web: MW2015, Chicago, IL, USA, 8-11 April 2015.
+Ryan, J.O., Mateas, M., Wardrip-Fruin, N. (2015): Open design challenges for interactive emergent narrative. In:
+Schoenau-Fog, H., Bruni, L.E., Louchart, S., Baceviciute, S. (eds.) ICIDS 2015. LNCS, vol. 9445, pp. 14–26.
+Springer, Cham. https://doi.org/10.1007/978-3-319-27036-4 2.
+Trichopoulos G., Konstandakis M., Aliprantis J., Caridakis G. (2018), ARTISTS: A virtual Reality culTural
+experIence perSonalized arTworks System: The “Children Concert” painting case study, International Conference
+on Digital Culture & AudioVisual Challenges (DCAC-2018), Corfu, June 2018.
+
+

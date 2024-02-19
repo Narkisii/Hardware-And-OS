@@ -1,0 +1,2460 @@
+Proceedings of the workshop on
+Personalized Access to Cultural Heritage
+PATCH 2008
+
+5th International Conference on
+Adaptive Hypermedia and Adaptive Web-Based Systems
+AH 2008
+
+Hannover, Germany
+29 July 2008
+
+Lora Aroyo, Tsvi Kuflik, Oliviero Stock, Massimo Zancanaro
+
+1
+
+Preface
+
+Technologies for Cultural Heritage appreciation gained lately a lot of attention. On
+the one hand, the scientific field explores the possibilities to provide appropriate
+technologies for digital and integrated access to cultural heritage collections. On the
+other hand, the cultural heritage institutions are more and more eager to collaborate
+among each other and to provide personalized views, navigation and access to their
+virtual and physical collections.
+Personalization capitalizes on a user-centred interactive information exchange
+between museum websites or museum guide systems and the visitors. The museum
+monologue turns into a dialogue and personalization is a new communication strategy
+based on a continuous process of collaboration, learning and adaptation between the
+museum and its visitors. Currently, there are already various initiatives by museums
+attempting to meet the needs of the individual user.
+Personalization could improve the museum websites and guide systems usability
+by supporting users' navigation and assisting them in quickly finding an appropriate
+starting point and to discover new relevant information. In this process, the museum
+systems consider users' personal characteristics, such as age, education, previous
+knowledge together with visitor's behaviour, in order to support a better visiting
+experience. Studies show that understanding is stimulated when the systems use
+concepts familiar to the users (considering their interests and knowledge level). Thus,
+museums can automatically adapt the content presentation using user data stored in a
+user profile. Users can explicitly fill in online forms to provide such data.
+Additionally, the system can monitor their activities to infer and record their
+preferences.
+The workshop focuses on the specific challenges of personalization in cultural
+setting and exploring novel ideas for coping with these challenges, including user and
+context modeling in digital cultural heritage context, personalized services and
+personalized information access for cultural heritage, personalized information
+presentation, navigation and browsing in digital and physical cultural heritage
+collections, the use of cultural heritage virtual and physical collections.
+
+The organizers
+Lora Aroyo, Tsvi Kuflik, Oliviero Stock, Massimo Zancanaro
+
+2
+
+Acknowledgements
+
+Many people contributed to the success of the workshop. We owe special thanks to
+the members of the program committee for their efforts in reviewing the workshop
+submissions.
+Jurg Baus, Saarland University, Gemany
+Shlomo Berkovsky, University of Haifa, Israel
+Keith Cheverst, Lancaster University, UK
+Vania Dimitrova, University of Leeds, UK
+Geert-Jan Houben, Vrije Universiteit Brussel, Belgium
+Vincenzo Lombardo, University of Turin, Italy
+Liz Sonnenberg, University of Melbourne, Australia
+Susan Hazan, The Israel Museum, Israel
+Yiwen Wang, Eindhoven University of Technology, The Netherlands
+
+3
+
+Table of Contents
+Supporting Creation and Sharing of Contents of Cultural Heritage Objects for
+Educational Purposes ……………………………………………………………....... 5
+Kenro Aihara, Taizo Yamada, Noriko Kando, Satoko Fujisawa, Yusuke
+Uehara, Takayuki Baba, Shigemi Nagata, Takashi Tojo, Jun Adachi
+Metadata-based Access to Cultural Heritage Collections: the RHCe Use Case …… 15
+Kees van der Sluijs, Geert-Jan Houben
+Augmenting a Content-based Recommender System with Tags for Cultural Heritage
+Personalization ……………………………………………………………………... 25
+Pierpaolo Basile, Fabio Calefato, Marco de Gemmis, Pasquale Lops, Giovanni
+Semeraro, Massimo Bux, Cataldo Musto, Fedelucio Narducci
+Short Papers
+Industrial Archaeology: Case study of Knowledge Management for Spatial Data of
+Findings …………………………………………………………………………….. 35
+Ashish Karmacharya, Christophe Cruz, Franck Marzani, Frank Boochs
+Personalised Support to Examine Context Dependency between History of Science
+Events ……………………………………………………………………...……….. 40
+Ilaria Corda, Vania Dimitrova, Brandon Bennett
+
+Posters
+Supporting Navigation Over Context-Limited Historical Digital Library Data ….... 45
+Jing Chen, Lorraine McGinty, Jian Shen, Helen Brosnan
+A Search Engine for 3D Models of Museum Artefacts …………………………..... 47
+Jing Chen, Lorraine McGinty, Noel O’Connor
+
+Demonstration
+Semantics-driven Recommendations in Cross-Media Museum Applications …....... 49
+Natalia Stash, Lora Aroyo, Yiwen Wang, Lloyd Rutledge, Peter Gorgels
+
+4
+
+Supporting Creation and Sharing of Contents of
+Cultural Heritage Objects for Educational
+Purposes
+Kenro Aihara12 , Taizo Yamada3 , Noriko Kando12 , Satoko Fujisawa2 , Yusuke
+Uehara4 , Takayuki Baba4 , Shigemi Nagata4 , Takashi Tojo5 , and Jun Adachi1
+1
+
+2
+
+National Institute of Informatics
+Dept. of Informatics, the Graduate University for Advanced Studies
+2-1-2 Hitotsubashi, Chiyoda-ku, Tokyo 101-8430, Japan
+{kenro.aihara,kando,satoko,adachi}@nii.ac.jp
+3
+
+The Histrographical Institute, the University of Tokyo
+t yamada@hi.u-tokyo.ac.jp
+4
+
+Fujitsu Laboratories Ltd.
+5
+Fujitsu Ltd.
+1-1 Kamikodanaka 4-chome, Nakahara-ku, Kawasaki 211-8588, Japan
+{yuehara,baba-t,NAGATA.Shigemi,tojo}@jp.fujitsu.com
+
+Abstract. In the classroom, textbooks and some supplemental materials are usually used for studying culture and history as well as language
+arts and science. Even though such materials are well-organized according to their corresponding curricula, they lack enough information for
+pupils to appreciate cultural objects and get more familiar with them.
+We have been carried out a research project that we call CEAX, which
+aims to reveal a methodology for establishing a framework for managing
+various kinds of information on cultural heritage objects and how to use
+it for educational purposes.
+This paper describes a system for supporting the creation and sharing of
+adaptive descriptions about cultural heritage objects, which is a part of
+the CEAX framework. The primary target users of this system include
+both experts, such as curators, and educators, such as school teachers.
+This paper also discusses the features of our framework for personalized
+access.
+
+1
+
+Introduction
+
+In the classroom, textbooks and some supplemental materials are usually used for
+studying culture and history as well as language arts and science. Even though
+such materials are well-organized according to their corresponding curricula,
+they lack enough information for pupils to appreciate the cultural objects and
+get more familiar with them.
+We have been carried out a research project called CEAX, which aims at
+establishing a methodology for establishing a framework for managing various
+
+5
+
+kinds of information on cultural heritage objects and how to use it for educational purposes[1]. This paper proposes a system for supporting the creation and
+sharing of adaptive descriptions on cultural heritage objects, which is a part of
+the CEAX framework. The primary target users of this system include both
+experts, such as curators, and educators, such as school teachers.
+Section 2 describes the background of this research and in Sec. 3, our framework is proposed. Then, our systems for the content management of cultural
+heritage objects and technical terms are described in Sec. 4. We discuss our
+framework in Sec. 5. Finally, a conclusion is given in Sec. 6.
+
+2
+2.1
+
+Background and Related Work
+Managing Cultural Heritage Objects Metadata
+
+The importance of the metadata increases when the cultural heritage objects
+are digitized. For example, metadata can improve the search eﬀectiveness and
+usability of the search system by providing multiple access points and preserving
+the semantics and context of the objects. However, for management reasons,
+cultural heritage object metadata has its own diﬃculties and problems, such as
+1) diversiﬁed descriptions, 2) linking multiple versions of the same objects, and
+3) readability for diﬀerent user groups.
+For more diversiﬁed descriptions, even the titles can often be changed since
+they have been assigned rather recently. In addition, cultural heritage objects
+description may diﬀer in their principles, paradigms, viewpoints, and interpretation for each creator of the metadata and its users.
+For multiple versions, the digitized images and other related contents of objects are created for various purposes and on diﬀerent occasions by the contents
+producers for diﬀerent users with diﬀering levels of quality and resolutions. Linking them together while maintaining your own contexts and diﬀerences, is critical
+for better usage of the contents.
+Any other related materials, for example the catalogs for exhibitions or auctions, textbooks, course materials prepared by school teachers, and even classroom reports made by students or pupils can be types of metadata or annotations
+about the cultural heritage objects and are also useful, and are considered variable contents if they properly managed to keeping their own contexts. In these
+ways, the amount of metadata and contents that are related is increasing and
+they are being enhanced by various content creators. The problem of diversiﬁed
+descriptions increases in such environments.
+Providing readable and understandable metadata and annotations for diﬀerent user groups, such as non-experts, children, and users with diﬀerent backgrounds, is particularly important for cultural heritage objects.
+To address the above mentioned problems, we need to identify the following
+tasks:
+– resolving the diversiﬁed descriptions
+– implementation of a ﬂexible content management mechanism
+
+6
+
+– develop creation support systems
+– develop levels of presentation
+We previously proposed a framework for cultural heritage object metadata
+called “Growing Metadata” and a system to manage the Growing Metadata in
+order to tackle these tasks[1].
+2.2
+
+Systems for Sharing Overall Content
+
+For globally sharing content and managing it, metadata integration is recognized as an important issue[2]. The Semantic Web[3] which aims at making web
+pages understandable by using computers, has been proposed and many applications based on the Semantic Web that use a Resource Description Framework
+(RDF)[4, 5] have also been proposed. One of the proposed systems is called Piggy
+Bank[6]. Piggy Bank is a web browser extension that helps users to create Semantic Web content in their use of the existing web content. This research deals
+with one of the important issues of the Semantic Web: a bottleneck for producing
+Semantic Web content.
+In addition, some content management systems (CMS), such as Wiki[7] and
+blog[8], have already been proposed for instant web publishing. CMS enables
+users to not only easily create web content, but also to dynamically make links to
+related content. Wikipedia[9], which is a Wiki-based free-content encyclopedia,
+can be globally used.
+In the cultural heritage ﬁeld, it is important to keep in mind that many of the
+web pages may include not only knowledgeable explanations but also a variety of
+expressions, ambiguities, and even incorrect things. In fact, the recall in general
+web search engines seems to be low because there is relatively less content than
+for general topics, although there are various expressions for even one concept.
+We assume that it is essentially diﬃcult to create ontology for this ﬁeld, because it is hard to obtain an authorized consensus, other than the experts’ subjective opinions. Therefore, we have to consider a more ﬂexible approach other
+than the Semantic Web, to manage the content, such as Semantic Blogging[10]
+and Semantic Wikipedia[11].
+
+3
+
+Framework of Growing Metadata
+
+Table 1 (a) shows a typical example of the metadata of an object. Table 1 (b)
+shows a variety of titles for the “Haniwa Armored Man” from Table 1 (a). As
+shown in Table 1 (b), even one object may have various titles. For example, “埴
+輪”, appearing in all the titles, means “Haniwa”, which is an earthenware burial
+ﬁgure. Although “武人” means a warrior and an ordinarily educated Japanese
+person can understand this, another term, such as “兵士”, is used nowadays in
+Japan instead. “挂甲” is also regarded as an unfamiliar term and it is diﬃcult for
+even native Japanese speakers, except for archaeologists, to understand what it
+means. Titles that don’t include “挂甲” might be used for younger people, such
+
+7
+
+Table 1: Example of Metadata for “Haniwa Armored Man”
+(b) Various Titles
+
+(a) Factual Data
+attribute
+
+value
+
+attribute value
+
+Item No.
+Title 1
+Title 2
+Place 1
+Place 2
+
+J-36697
+[国宝] 埴輪武人
+Haniwa Armored Man
+太田市飯塚町出土品
+Object from site at Iizuka-cho, Otashi, Gunma
+Period 1
+古墳時代
+Period 2
+Late Kofun period
+Dimension 1 高 130.5
+
+Title
+Title
+Title
+Title
+Title
+Title
+
+3
+4
+5
+6
+7
+8
+
+武人の埴輪
+埴輪武人
+埴輪 挂甲をつけた武人
+埴輪 挂甲着用男子
+埴輪 武人
+埴輪 挂甲の武人
+
+Table 2: Example of Descriptions about “Haniwa Armored Man”
+Description 1
+Description 2
+Description 2 (en)
+
+Description 3
+Description 3 (en)
+
+全身像。各部石膏復原。高 130.5。明茶褐色。胎土に砂粒・赤色粒を含む。冑には，三尾鉄表現がみられる。顔は粘土薄板貼
+付引伸ばし成形。台は断面楕円に近い隅丸胴張方形。透かしは上部両側に 1 対で円形。外面ハケー部ナデ調整。赤彩は顔・
+靫・脚の小札にみられる。
+(from [12])
+頬当（ほおあて）
+・錣（しころ）の付いた縦矧板鋲止衝角付冑（たてはぎいたびょうどめしょうかくつきかぶと）と小札（こざ
+ね）を革ひもで綴じた挂甲（けいこう）に身を固め、両腕には籠手（こて）をつけています。鞆（とも）を巻いた左手は弓を
+執り、大刀の柄に右手をかけ、いまにも抜かんとする様相です。背中には矢を入れた靫（ゆき）を背負っており、完全武装の
+東国武人の姿を表しています。人物埴輪の中でもきわめて優れた作品で，埴輪では唯一の国宝です。
+
+The haniwa warrior wears a visorless keeled helmet (J. tatehagi-ita byôdome shokakutsuki), a armor (J. keikô) which consists of small panels of iron (J. kozane) laced together
+with leather lace and puts the bracers (J. kote) on both forearms. His left hand bound
+with protecting tie (J. tomo) holds a bow while right hand holds a sword. He has an air
+to be going to revolt the sword. He puts the arrows in the quiver (J. yuki) on his back,
+and what is displayed is the shape of full-armed warrior in the eastern country. It is an
+extremely high-quality haniwa warrior and the only national treasure in haniwa.
+完全武装した東国の武人をかたどった埴輪です。ほお当て、首の後ろを保護する錣（しころ）が付いた衝角付冑（しょうかく
+つきかぶと）をかぶり、挂甲（けいこう）とよばれる甲（よろい）に身を固めています。両腕には、腕を保護する籠手（こて）
+をつけています。左手に弓をもち、右手を大刀の柄にかけ、今にも抜こうとしているようです。背中には、矢を入れた靫（ゆ
+き）を背負っています。人物埴輪の中でもきわめて優れた作品で、埴輪ではただ一つの国宝です。
+
+It is a haniwa in the shape of the full-armed warrior in the eastern country. The haniwa
+warrior wears a visorless keeled helmet (J. shôkakutsuki) with cheek-guards and an armor
+called keikô. It puts the bracers (J. kote) on both forearms to protect them. The warrior’s
+left hand holds a bow while his right hand holds a sword slung from his waist. It seems
+to be going to revolt the sword. He puts the arrows in the quiver (J. yuki) on his back. It
+is an extremely high-quality haniwa warrior and the only national treasure in haniwa.
+
+as K-12 pupils; “Title 1”, “Title 3”, “Title 4”, and “Title 7”. In general, all the
+titles seem acceptable, because the creator of this object is unknown and there
+is no “correct” title. In fact, each title is used at the same museum for its own
+purpose, such as for a card catalog or for exhibitions.
+In the case of a description, various descriptions can be written for a single
+object, as shown in Table 2. We would like to emphasize that each description
+has to be written for its own expected readers, such as experts, general adults, or
+children. We, therefore, must handle the descriptions that correspond to the target readers. For example, “Description 1” from a catalog[12] seems to be written
+for experts, and “Description 3” is rewritten for children from “Description 2”,
+which is for adults. In general, it is diﬃcult to understand “Description 1”, and
+it may also be hard to even read it aloud to them. Another longer description
+
+8
+
+Owlery Web Client
+CEAX Voyager
+Classrooms
+General User
+Content Management Service Provider
+
+Owlery
+
+Learner
+
+utilizing shared
+course materials
+Course Materials
+
+submitting its
+own description
+General User
+General User
+
+Cultural Heritage
+Objects Contents
+
+Web server
+
+authoring, submitting
+and utilizing tasks,
+contents, and annotations
+
+Internet
+Internet
+Web server
+
+Annotations
+
+Owlery Client
+Schools
+
+Teacher,
+Educator
+
+Web server
+
+deriving extended
+documents for searching
+
+Search Engines
+Meta-search service
+
+se
+arc
+h
+
+au
+an thor
+d u ing
+,
+an tilizin
+d a gsubm
+nn co ittin
+ota nte g
+tio nts
+ns ,
+
+Owlery Client
+
+CEAX Search Service
+Search
+Index
+
+Search
+Engine
+
+Museums
+
+Expert,
+Curator
+
+RS-model
+
+Fig. 1: Owlery and its Clients
+
+about the object can be found on the Internet[13]. We assume that the descriptions for a web page or a printed article may be allowed to be longer than the
+ones for an exhibition, where the visitors can stop and read them for a minute,
+even if the expected readers are adults.
+Many of the existing global content management frameworks, such as the Semantic Web, assume that a global schema can be obtained, shared, and accepted
+by all those concerned. Furthermore, it is necessary for all content creators to
+describe documents consistent with the conceptual schema. We, however, must
+not forget that people often consciously and unconsciously say incorrect things.
+We, therefore, took another approach to managing the content. The basic idea
+of our approach is that the descriptions should be separated from the factual
+data, such as a unique identiﬁcation number or its dimensions, as shown in Table 1 (a), in the metadata and associated with the related factual data or other
+descriptions, as opposed to the existing frameworks whose descriptions of each
+object are included within the metadata as well as in the factual data. Some of
+the typical factual data are the person, work, time, location, and organization.
+In this paper, the term annotation will be used to refer to the descriptions
+related to the content. The annotation includes the various titles, descriptions
+about objects or terms, expressions of time period, location names, and so on.
+
+4
+4.1
+
+Systems for Content Management
+Overview
+
+Figure 1 illustrates our systems for content management based on the everincreasing amount of metadata. The overall system consists of a content management system, called the Owlery (middle of the ﬁgure), and the clients of the
+Owlery (right and left).
+
+9
+
+To use our systems for educational purposes, we have added several roles in
+our framework: experts from museums (bottom right), educators (middle right),
+learners (top right), a content management service provider (middle), and general users (left). Experts, such as the curators of museums, use our client system,
+called the Owlery Client, to author the metadata and descriptions on cultural
+heritage objects. Although educators also use the same client, they describe not
+only their own contents, such as the neighboring historical sites, for classes but
+also the tasks that must be prepared prior to a class. The tasks contain some
+metadata, such as the objectives, dates, and subjects, and a content set as the
+course material to be used in the class. The content set will be used with another client, called the CEAX Voyager, in the classroom by the learners, under
+the guidance of the educator.
+Educators create their material as a content set and the pupils explore the
+area that contains it.
+4.2
+
+Owlery: Content Management System
+
+The Owlery is the content management system of CEAX. It stores the metadata on the cultural heritage objects, images, annotations, and course materials
+declared by educators. The Owlery provides search functions including ﬂexible
+full-text search functions based on an RS-model[14] and image retrieval. In addition, it facilitates a cross-media search between the text and an image, which
+means that the users can input keywords, text, or a sample image as a query
+and then it answers with both the descriptions and images related to the query.
+4.3
+
+Owlery Clients
+
+Owlery Client The Owlery Client is a fully-functional client system for authoring, submitting, and utilizing the contents of the Owlery. Figure 2 shows a
+snapshot image of the Owlery Client, which contains (a) the main window and
+(b) a pop-up detailed information of a selected content. The main window has
+three panes: a search pane (left), an authoring pane (middle), and an information pane (right). A user can search for objects, terms, and tasks in the search
+pane, while authoring their task in the middle one. In this example, the retrieved
+objects for the keyword “Uma” (horse) are shown in the search pane. The result
+includes objects related to horses, such as burial ﬁgures and harnesses. The information pane (right) presents various kinds of information, including the selected
+contents, suggestions related to the authored task, and history of the creation
+of the content. In the detailed information window, users can declare their own
+description and select images and descriptions to be used in class.
+CEAX Voyager: Client for Supporting Guided Discovery Learning
+CEAX Voyager is an exploring tool for the contents of CEAX. It was designed
+for supporting guided discovery learning in classrooms. Users can view scattered
+object images in a two-dimensional space and zoom in on a selected image (Fig.
+
+10
+
+T itle
+
+Keyword Search Form
+
+Metadata
+(facts )
+
+Selected Objects of
+Material
+Script
+Search
+Result
+
+Descriptions
+
+Related Terms
+and Objects
+
+T humbnail
+I mages
+
+Worksheet
+
+New
+Description
+
+Search
+History
+
+(a) Main window
+
+(b) Detailed information
+
+Fig. 2: Snapshot Image of Owlery Client
+
+(a) Object Image and its
+Metadata and Description
+
+(b) Graph Layout
+
+(c) Classiﬁcation
+
+Fig. 3: Snapshot Images of CEAX Voyager
+
+3 (a)). It can highlight remarkable regions of images (indicated in the yellow
+box), as well as present detailed information, including descriptions.
+In addition, the tool provides two computational functions: a graph layout
+and a classiﬁcation. The graph function coordinates images according to two
+axes selected by users (Fig. 3 (b)). The classiﬁcation function facilitates semiautomatically classifying objects into two categories. When a user wants to ﬁnd
+some common factors between two groups or the hidden relation amongst objects, they enter a few exemplars into the corresponding segment, which is indicated by the two bottom regions in Fig. 3 (c)). Next, the tool extracts the
+common factors.
+
+5
+5.1
+
+Discussion
+Feasibility Test
+
+To reveal the feasibility of our approach, experimental classes were conducted
+using the CEAX Voyager at an actual elementary school in Nishi-Tokyo city
+since 2004. About 90 6th-graders from three classes were used for this test each
+
+11
+
+year. The theme of the class, which was conﬁgured by the teachers in charge, was
+to discover the secrets of Haniwa. The teachers aimed to let pupils discover any
+secret, or hypotheses, on their own and learn the process of discovering through
+abductive inference, veriﬁcation, and presentation.
+Data Set In these experimental classes, we selected historic heritage objects
+from the Kofun period of Japan, which was from the late 4th to the 7th century
+A.D., including the national treasures of Japan owned by the Tokyo National
+Museum (TNM). We did this because Haniwa was supposed to be familiar to
+the pupils and TNM owns the largest collection of Haniwa in the world. First,
+an archaeologist described the annotations for each object and technical terms
+(e.g. “Description 2” of Table 2). Then, a science writer rewrote the annotations
+for the pupils (e.g. “Description 3” of Table 2). We prepared over 180 objects,
+860 images, and 380 descriptions. From this collection, 291 images and their
+corresponding annotations were selected and loaded into CEAX Voyager.
+Results In the classes, some of the following supportive evidences for our approach were observed:
+Pupils were willing to read descriptions. The teachers and the authors had
+expected that the pupils would not want to read the descriptions of the objects, because they usually tended to give up reading and lose concentration
+when unknown characters appeared. However, the teachers were surprised
+that the pupils got well-engaged with the beautiful images and tried to actively read the descriptions of one object after another. In fact, the actions
+related to reading the descriptions were done much more than any of the
+other actions.
+Even descriptions for adults might be acceptable. We used some unrewritten descriptions, that is, descriptions for adults. Some pupils complained
+about their low readability, which we expected. However, some tried to read
+these descriptions even when unknown characters appeared. We have observed that when more descriptions were made for the pupils, fewer complaints were made.
+In an interview with the teachers after the classes, they strongly concurred
+on the success of the tasks and the eﬀectiveness of our systems and contents, although they were unable to get suﬃcient enough help from the everyday search
+engines in the past. As a result, we believe that an appropriate form of expressionism for a description is necessary and our approach is feasible for this
+purpose.
+5.2
+
+Remarks
+
+In our framework, basically any authorized user can append their own description, as well as a blog or Wiki. The content repository becomes dynamically
+bigger, although existing frameworks[15, 10, 11] are based on a global schema,
+such as RDF.
+
+12
+
+As opposed to weblog or Wiki, our framework can maintain the content
+quality because our major content creators are experts, such as researchers or
+curators of museums, like a subject gateway approach[16] . The Owlery does not
+solely store descriptions but includes their author’s information. The author’s
+information for the descriptions seems quite informative when other users have
+to decide to trust and accept the descriptions or not.
+Our framework is open to general users, although a subject gateway approach
+strictly controls its content. Therefore, our framework has to select an appropriate description for the user from a wide-range of stored descriptions. We assume
+that there are the following diﬀerent approaches for selecting or ranking the
+descriptions presented to the users of the client systems of Owlery:
+– weighting formerly selected descriptions by the user
+– weighting descriptions supported by a lot of users
+– weighting descriptions whose author is related to the user, which relevance
+is based on attribute, such as occupation or pupil’s grade in charge
+– weighting descriptions whose target reader is included in formerly selected
+target users of CEAX Voyager by the user, when he/she is an educator
+The latter two approaches are facilitated by the feature of our framework and
+we suppose that these are important. As opposed to existing ﬁltering or recommendation techniques fundamentally based on the ﬁrst two approaches, these
+are based on the relevance between the authors or target readers. We think
+that these approaches and their combination can make our personalized access
+to descriptions more eﬀective than the usual hit-count-based ranking methods,
+because the usefulness of a document depends on its reader and a user of our
+framework, such as an educator, has to select the descriptions for his/her pupils.
+
+6
+
+Conclusion
+
+This paper describes the framework for supporting the creation and sharing of
+adaptive descriptions on cultural heritage objects and a ﬂexible content management system called the Owlery. In addition, we discussed the advantages of our
+personalization approach for selecting or ranking descriptions against the usual
+hit-count-based ranking methods.
+Implementation of this personalization approach and usability testing are
+future works.
+
+7
+
+Acknowledgments
+
+The authors wish to express our gratitude to the Tokyo National Museum and
+Mr. Yoichi Inoue, Mr. Mitsuharu Iwasa, and Mr. Satoshi Tarashima for their
+valuable advice and permission to use the images and metadata of the museum.
+Thanks are also due to the Tanashi Elementary School of Nishi-Tokyo city
+for their cooperation with the experimental classes.
+
+13
+
+This study was supported in part by the Ministry of Education, Culture,
+Sports, Science, and Technology of Japan under the “Development of Fundamental Software Technologies for Digital Archives” program.
+
+References
+1. Aihara, K., Yamada, T., Kando, N., Fujisawa, S., Uehara, Y., Baba, T., Nagata, S.,
+Tojo, T., Adachi, J.: Owlery: A ﬂexible content management system for “growing
+metadata” of cultural heritage objects and its educational use in the CEAX project.
+In: Proceedings of the 9th International Conference on Asian Digital Libraries
+(ICADL 2006). (2006) 22–31
+2. Bernstein, P.A.: Applying model management to classical meta data problems. In:
+Proceedings of the ﬁrst Biennial Conference on Innovative Data Systems Research.
+(2003) 209–220
+3. Berners-Lee, T., Hendler, J., Lassila, O.: The Semantic Web – a new form of
+web content that is meaningful to computers will unleash a revolution of new
+possibilities. Scientiﬁc American (May 2001)
+4. Candan, S.K., Liu, H., Suvama, R.: Resource description framework: metadata
+and its applications. ACM SIGKDD Explorations Newsletter 3(1) (2001) 6–19
+5. World Wide Web Consortium (W3C): Resource description framework (RDF).
+http://www.w3.org/RDF/
+6. Huynh, D., Mazzocchi, S., Karger, D.: Piggy Bank: Experience the semantic web
+inside your web browser. In: Proceedings of the fourth International Semantic Web
+Conference. (2005)
+7. Canningham, W.: WikiWiki. http:/c2.com/cgi/wiki?WikiWikiWeb (2005)
+8. The blogosphere. In Rosenbloom, A., ed.: Communications of the ACM. Volume 47.
+(2004) 30–59
+9. Wikipedia. http://en.wikipedia.org/
+10. Cayzer, S.: Semantic blogging and decentralized knowledge management. Communications of the ACM 47(12) (2004) 47–52
+11. Völkel, M., Krötzsch, M., Vrandecic, D., Haller, H., Studer, R.: Semantic
+Wikipedia. Proceedings of the 15th international conference on World Wide Web
+(2006) 585–594
+12. Tokyo National Museum: Illustrated Catalogues of Tokyo National Museum –
+Objects from Proto-Historic Sites: Kanto District II. (1983)
+13. Tokyo
+National
+Museum:
+Haniwa
+Armored
+Man.
+http://www.emuseum.jp/cgi/pkihon.cgi?SyoID=7&ID=w123&SubID=s000
+14. Kanazawa, T., Aizawa, A., Takasu, A., Adachi, J.: The eﬀects of the relevancebased superimposition model in cross-language information retrieval. In: Proceedings of the 5th European Conference on Research and Advanced Technology for
+Digital Libraries. (2001) 312–324
+15. Soo, V.W., Lee, C.Y., Li, C.C., Chen, S.L., Chen, C.c.: Automated semantic annotation and retrieval based on sharable ontology and case-based learning techniques.
+In: Proceedings of the 3rd ACM/IEEE-CS Joint Conference on Digital Libraries.
+(2003) 61–72
+16. Wiseman, N.: International collaboration on subject based internet gateway.
+http://www.dlib.org/dlib/october98/10clips.html#GATEWAYS (1998)
+
+14
+
+Metadata-based Access to Cultural Heritage
+Collections: the RHCe Use Case
+Kees van der Sluijs1 and Geert-Jan Houben1,2
+1
+
+Technische Universiteit Eindhoven, Computer Science, PO Box 513, 5600 MB Eindhoven,
+the Netherlands
+{k.a.m.sluijs, g.j.houben}@tue.nl
+2
+Vrije Universiteit Brussel, Computer Science, Pleinlaan 2, 1050 Brussels, Belgium
+
+Abstract. More and more cultural heritage organizations see a great
+opportunity by opening up their collections via the Web to expand their userbase. In this paper we look at our current work in a specific use case, a cultural
+heritage organization called RHCe that wanted to open up its photo and video
+archives to the public. We demonstrate in this paper how we can utilize
+metadata to offer a homogeneous multi-faceted view over their heterogeneous
+archives. We also discuss what to do if metadata is not available for resources
+and how we can use a simple mechanism like tagging to still get high quality
+annotations. We do this by relating the user tags to concepts in an ontology and
+we discuss some mechanism to do this (semi-) automatically. We also show
+how these techniques can be used to build a user model and how we can
+identify the most probable annotations that can be used by domain experts to
+improve their annotation-time efficiency.
+Keywords: cultural heritage, data access, personalization, metadata, tags,
+ontologies, semantics.
+
+1 Introduction
+Collections of cultural heritage content have long been accessible only from within
+the institutions hosting the collections. With the emergence of the Web, many of these
+institutions have started attempts to make the content available from the World Wide
+Web, and experimenting with this new role of the content and their own new role in
+offering access to this content.. Some examples of such projects are FinnONTO1 (and
+FinnONTO 2.02), CHIP3, CATCH4, SmartMuseum5. All these efforts share the desire
+to open up the collections of cultural heritage content to the wider public and they
+investigate how to do that such that the individual users can get effective access.
+1
+
+http://www.seco.tkk.fi/projects/finnonto/
+http://www.seco.tkk.fi/projects/sw20/
+3 http://www.chip-project.org/
+4 http://www.nwo.nl/nwohome.nsf/pages/NWOP_66EUM7_Eng
+5
+http://smartmuseum.eu/
+2
+
+15
+
+A key element in this endeavour of opening up the cultural heritage collections is
+the availability of metadata. The metadata describes the content and allows the tools
+for data access to know which content is there and can be supplied as part of an
+answer to a user’s request for information. Both in searching the content as in
+browsing the content, metadata describing the content is a necessity. Typical for the
+scenarios in the institutions and for the early experiments is that not a lot of high
+quality metadata is available and first has to be created: often, by hand by the
+professionals from the institutions or by automatically extracting it from the content.
+This lack of metadata is a problem that has triggered several attempted solutions.
+Often the metadata is organized with the aid of concept structures or ontologies
+that structure the metadata, for example with classes and relationships. In many
+domains, consolidated concept structures or ontologies have been obtained and can
+then be used for the organization of the access to the data based on the metadata.
+However, these structures have often been obtained through a consolidation process
+involving professionals in the domain, and that makes them not always directly
+suitable for average end-users as road map for their access to the content: the concepts
+sometimes do not come with an intuitive meaning, nor do the relationships between
+concepts.
+Both for the purpose of easy understanding of the structure and for creation of
+metadata by end-users, user-annotation or tagging in Web 2.0-speak has therefore
+come into the picture. Whereas tagging in the sense of associating free keywords to
+the content is easy to do, systems that have chosen for good reasons to be based on
+more carefully crafted concept structures or ontologies cannot use those tags without
+difficulty. That is why in such cases it is interesting to see how the end-user tags can
+be related to the concept structures.
+This had led to two interesting questions. First, it is relevant to investigate how
+metadata can be exploited for browsing and searching. Second, it is relevant to see
+how good metadata can be obtained, which includes the question how tags can be
+related to concepts. In one of our use cases, in RHCe, we exactly had these questions.
+In this workshop paper we report on the current standings of this research and lay out
+the path to the future.
+In section 2 we introduce RHCe and explain the goal it had and the associated
+problems it was facing. In section 3 we show how a navigation and search structure
+was made over RHCe’s heterogeneous datasets using metadata. Then in section 4, we
+discuss which collaborative-based approaches were used to offer similar navigation
+structures over the datasets for which no metadata or full-text is available. We then
+end the paper with some observations on our system and a discussion of the currently
+planned work.
+
+2 RHCe
+The Regional Historic Centre Eindhoven (RHCe) governs all historical information
+related to the cities in the region around Eindhoven in the Netherlands. The
+information is gathered from local government agencies or private persons and
+groups. This includes not only enormous collections of birth, marriage and death
+
+16
+
+certificates, but also posters, drawings, pictures, videos and city council minutes.
+Most of the fragile material is stored in vaults and is thus physically inaccessible to
+the public. A first step in opening up the collections has been the digitization of many
+of the collections, and as in many similar cases this enormous effort has been done in
+a more or less literal transformation of the physical structures into their digital
+multimedia representations.
+One of the main goals of our collaboration with RHCe was to experiment with
+technology that could help to further expose these collections to the general public.
+However, especially for the videos and pictures very little metadata is available which
+makes indexing this data for navigation or searching very hard. The original metadata
+was mainly targeted at the professionals working at the offices of the centre, and was
+therefore not suitable for the larger public. A more specific goal of RHCe is therefore
+to have high-quality metadata of all their collections for easy retrieval (both online
+and offline, and both for the general public and for the officials of the local
+government).
+RHCe employs a number of domain experts (cultural heritage experts) whose fulltime job is to provide high quality metadata over multimedia documents based on a
+carefully constructed topic ontology by RHCe’s domain metadata specialists.
+However, in spite of all their efforts by far most of their collections have no metadata
+at all. Worse yet, new material arrives more frequently and in larger quantities than
+the domain experts can hope to annotate in any near future: it is easy to see that their
+capacity will not be sufficient to supply all the desired metadata.
+We therefore designed a prototype application called CHI. The goal of this
+prototype was twofold. First, it has to disclose the data to the end-users for browsing
+and searching. Second, it has to support the users in collaboratively providing the
+metadata and then to support the application and consolidation of that metadata.
+These aspects will be explained in the following sections of the paper.
+
+3 Browsing and searching the RHCe collection
+As a first step to open up the digital collections to the larger public, the challenge was
+addressed to demonstrate how metadata could be exploited in browsing and
+searching. To this end CHI was built, a prototype Web application framework with
+the purpose to offer the digital multimedia versions of the collection content to the
+public in a meaningful way. For this first version, the photo and video collection was
+considered since it was judged that this would offer the best short-term gain in terms
+of public access and interest and in terms of insights in the role of metadata in the
+process.
+The framework offers a faceted browser view over the data (inspired by work like
+[1], [2], [3]). This means that the data can be browsed or searched via a number of
+different dimensions. The photo and video collections that were considered first in
+these experiments carry three such dimensions: time, location, and keywords. All
+three of those dimensions are used to describe the subject of the photos and video
+scenes. In CHI these dimensions are described by detailed domain-specific
+ontologies. These ontologies are under the control of RHCe’s professionals and they
+
+17
+
+also ensure that the metadata of the content aligns with these ontologies. Due to this
+alignment between metadata and ontologies, CHI can offer the end-users the
+navigation along the collections in a homogeneous way.
+For every dimension CHI has a separate visualization in the user interface. For
+time we use the Simile Timeline6, for location we use Google Maps7 and for the
+keywords we built a graph representation which represents the relatedness of terms. In
+this way, we can cluster data elements that share a characteristic in one dimension in
+these interfaces. The user can either navigate directly through the datasets via one of
+the views, or can use a search interface to search and present the clustered search
+results in one of these interfaces (besides the regular search result list). This
+representation is created in such a way that for a given picture or video, other pictures
+and videos that share a characteristic can be found.
+Figure 1 for instance is a screenshot of the Google Maps visualization of our
+application. In the screenshot the search results for photos and videos related to the
+Eindhoven city-centre are represented. Clicking on one of the locations one can see
+all clustered elements that belong to the specific location; in case of the screenshot all
+pictures related to the Eindhoven Market can be seen in the popup window.
+
+Figure 1: Screen shot of the Google Maps visualization with clustered results
+In order connect the objects in the RHCe dataset to Google maps we had to align
+the RHCe location ontology to location information that could be used by Google
+Maps.
+The location of an object in the RHCe metadata ontology consists of a location
+name. This name is not always available for an object. This has several reasons, e.g. it
+6
+7
+
+http://simile.mit.edu/timeline/
+http://maps.google.com/
+
+18
+
+might not be known at which specific location a photo is taken and it also might be
+impossible to find out, and sometimes there are several conflicting assertions over
+where a picture is taken. The locations also differ in granularity. Photos of specific
+buildings can be quite specifically pinpointed to a location, while the location of an
+aerial photo of the entire city is much broader. Another challenge for the alignment is
+that location names change over time, e.g. during redivision or complete renovation of
+districts.
+These problems are overcome by maintaining a location ontology. Location
+metadata refers to concepts in this ontology. Every concept has a label and if a
+location name changes the new name can be added as a label to the concept as the
+new name (including a time indication to indicate when the name has changed). The
+location hierarchy also includes building names, to simplify the task of the annotators.
+In this way the domain experts can for instance annotate a photo with “city hall”
+instead of having to look up the exact address. They do have to use context of the
+hierarchy to indicate exactly which city hall they refer to (e.g. the one in Eindhoven or
+one in the neighboring municipalities).
+As the domain experts prefer to annotate objects with conceptual names like “city
+hall” instead to be bothered with coordinates during the annotation process we add
+these coordinates in the location ontology (instead of the annotation). We only have to
+associate the locations in that ontology to the coordinates once. Explicitly providing
+coordinates for all locations in the Eindhoven area is still ongoing work, but with our
+approach with every new coordinate-pair added to a location concept in the ontology
+we have effectively obtained the exact location information of a large set of objects.
+The advantage of having coordinates is that they can be directly translated in Google
+Maps locations. In the cases where we don’t have coordinates we try to use the
+location names, but this sometimes leads to faulty locations on the map.
+The hierarchical structure of the location also allows us to differ in the granularity
+of our clustering. We can for instance cluster on the most detailed level (e.g. only
+cluster all photo’s of the city hall), but also on street level, district level or even city
+level.
+With the time dimension (see Figure 2 for a screenshot) we do something similar
+as with locations. RHCe has a custom time description in their metadata ontology. For
+reasoning purposes we aligned that with the OWL time ontology8. Via the time
+ontology we are able to populate the XML input for the timeline. The ontology can
+for instance be used for querying, (e.g. for queries with restrictions like “before” or
+for the use of intervals). It can also, like the Google Maps, be used to differ in
+granularity (e.g. day-based, year-based or era-based levels). When clustering the
+results in the timeline we can also use the keyword ontology, so for instance for the
+period of the second world war (for which a lot of material exists and is annotated in
+the collection), we are able to not only cluster al results from that era together, but add
+further clustering via the keywords (e.g. clustering all objects that depict bunkers
+from that time).
+
+8
+
+http://www.w3.org/TR/owl-time/
+
+19
+
+Figure 2: Screenshot of the Simile Timeline visualization
+
+4 Creating metadata through tagging in the RHCe collection
+Ontology- or concept-based approaches ask for quality metadata. Besides opening
+up their datasets to the public, one of RHCe’s goals is actually to obtain high-quality
+metadata of all of its archived data not only to improve on searching and browsing the
+datasets but also to adhere to quality standards as specified by the (local and national)
+government. However, RHCe’s few domain specialists have only limited time and the
+collections are huge. For them, the biggest benefit from CHI is to exploit the access
+by the users for getting metadata from them. However, for many obvious reasons
+which we will not specify here in detail, users do not want to fill in large forms to
+provide well-structured data about the photos and videos for example: many will find
+this too time-consuming or too complicated (e.g. a typical part of RHCe’s user group
+consists of elderly people with little computer (and typing) experience, but with great
+knowledge and interest in the domain). Therefore, simplicity is a key feature for CHI
+and we use several simple mechanisms to keep the system as easy accessible as
+possible while still obtaining this information (and the construction of the prototypes
+is actually part of the effort to experiment with this demand).
+At the core of this approach is a tagging mechanism ([4],[5],[6],[7]) by which users
+can enter keywords or small sentence fragments, called tags, to describe a scene on a
+photo or video. An inherent property of tagging is that it is schema-less. This means
+that the user does not need any prior knowledge of some domain for annotating
+resources. This is what makes tagging inherently simple, and what convinces RHCe
+that this will be an effective tool in the circumstances they are in with their photo
+collection.
+
+20
+
+Using a tagging mechanism introduces also some problems, however, and some
+that we also experience here. One problem is that the semantics of tags are not always
+clear, i.e. what is precisely the meaning and intention of a tag? There are several
+causes for doubts, for instance spelling mistakes, disambiguation concerns (e.g. the
+Dutch word “bank” can mean “bench” or a “financial institute”), words that have
+more then one common spellings (e.g. “chic” versus “sjiek”, both meaning “classy” in
+Dutch) or morphology.
+Another problem is that tags are often not very well structured. It is not clear which
+tags are related to which other tags, or what property of a resource is actually
+described. For example, the tags differ in how specific they are. A picture that depicts
+the building called “Catharina church” could for instance be tagged with “Building”,
+“Church” or “Catharina church”. However, if you would know that “Catharina
+church” is a type of “Church” and “Church” is a kind of “Building”, this information
+could be used during a search for buildings and then you could also find resources
+only labeled with “Catharina church”.
+Of course a tag-only-based approach could be used, meaning that we build an
+ontological structure based on co-occurrence relationships between tags which is used
+in various approaches (e.g. consider [8],[9]). However, this approach has some
+disadvantages. One problem is that relationships between tags that co-occur are not
+clear. If two terms often co-occur, does that mean that they are synonyms, that one is
+more specific than the other, or is there some other relationship? Another problem, as
+explained in [4], is that the groups of terms that all people agree on are usually very
+general and will lead to a shallow ontology, except for some specific ‘hot’ topics that
+tend to be over-specific. The largest problem is however the lack of quality control.
+As explained, RHCe tries to adhere to metadata quality standards and they have their
+own carefully constructed ontology. The ontology is extendable if necessary, but this
+should be under total control of RHCe. If the users experience the freedom of
+providing tags but in fact (perhaps with a little bit of help) annotate the photos or
+video scenes with concepts from the ontology, then this would significantly increase
+the quality and effect of the metadata. Therefore, the aim of the support is that the
+resources should be somehow annotated with concepts from their ontology. And if we
+have this annotation, then this should lead to a high-quality well-balanced browsing
+experience. Therefore, we chose to look at relating tags to ontological concepts in the
+controlled ontology.
+In order to relate tags to ontological concepts we use several techniques that
+correspond to techniques in ontology building (e.g. [9]) and ontology matching (e.g.
+[10],[11]). The situation at hand differs in solely relating tags to concepts which gives
+some specific problems, and we also make use of the fact that we have a relatively
+controllable (in size) user group for personalization. In the next sections we briefly
+discuss the techniques we use in this specific setting.
+4.1 Lexical matching
+Our first step to relate tags to concepts from the ontologies that we use is based on
+lexical matching, i.e. we are going to compare tags and concepts on the basis of the
+lexical representations associated with them.
+
+21
+
+Tags basically are strings, so that does not pose a problem, however with
+ontologies things are different. We use RDF and OWL to express the ontologies,
+which is a natural choice as these language are especially designed to express
+ontologies and because of their widespread use many additional sources are available
+(both in terms of tools and “helper” ontologies and tools). In those languages a
+concept is denoted by a URI. The textual representation of a concept can be modeled
+in different ways. A common way to represent textual representations of concepts is
+by using the rdfs:label. However, many other candidate properties exist, like the
+skos:preflabel and skos:altlabel to discern between preferred and alternative labels,
+but also custom properties are used. Sometimes the label schema has a more complex
+structure, like the example in Figure 3. On the other hand, many ontologies actually
+do not use labels at all, but use the fragment identifier of an URI as the only labeling.
+
+Figure 3: Complex label structure
+In CHI, to identify the labels of concepts in ontologies we use a configuration
+where the label of a concept can be specified in four ways. Default configuration
+behavior is to look for all the well-known label properties, like rdfs:label and the
+skos:preflabel and skos:altlabel properties. For complex structures the configuration
+can be specified using a SPARQL query. For URI decoding the configuration has to
+specify which delimiter schema to use (e.g. mixed case nouns, underscores). The
+RHCe metadata ontology uses complex labeling structures.
+After identifying the labels for the concepts in an ontology, we calculate the string
+similarity between the tags and the string representations of the concepts. We do this
+to accommodate for small spelling variations, morphology, etc. Many methods and
+libraries to calculate this similarity exist and we chose to use the simmetrics library9
+for this. After calculating the similarity values for tags and concept labels we select
+those above a configurable threshold. The result of this process is a set of concepts
+and certainties (similarity value) for every tag.
+4.2 Exploiting the Ontological Structure
+When we have a relationship between tags and concepts in the ontology we can
+also exploit the structure of the ontology. We can exploit this structure at several
+points in the application. For instance at query time, e.g. with a search on the concept
+“Church” we can traverse the skos:broader relation and find the narrower terms, e.g.
+“Catharina Church”, and then also all images and video that have a tag that matches
+(one of the) label(s) of the concept for “Catharina Church”. In CHI we however also
+9
+
+http://sourceforge.net/projects/simmetrics/
+
+22
+
+exploit the ontology relationships at an earlier stage, as we show the user suggestions
+for a newly inputted tag consisting of concept labels from the ontology. In this way
+we let the user verify the matches and select the most appropriate suggestion. By not
+only showing syntactic matches but also semantically related matches we give the
+user a richer choice of labels and thus we get more precise feedback which concept
+the user actually meant. For this we configure CHI to know which properties to
+traverse (e.g. the skos:broader property). If the user selects a label we store this action
+as a relation between the original user tag and the concept that the label belongs to. To
+give an idea of the quality of the suggestions consider the suggestions for the input tag
+“bevrijd” (liberated) in Table 1.
+Suggestion
+Bevrijding (liberation)
+intocht (parade)
+
+Certainty
+0.96
+0.94
+
+vrijlatingen (setting free)
+emancipatie (emancipation)
+Onafhankelijkheid
+(independence)
+
+0.94
+0.90
+0.90
+
+Suggestion
+vrijheid (freedom)
+dekollonisatie
+(decollonization)
+onderdrukking (suppression)
+oorlogen (war)
+verkieziningen (elections)
+
+Certainty
+0.90
+0.88
+0.85
+0.85
+0.76
+
+Table 1: Suggestions for the input tag "bevrijd" (liberated)
+
+4.3 Collaborative filtering and Personalization
+The techniques we discussed up until now mainly utilize semantics of concepts.
+Another promising route is the use of the contribution of the users. We exploit this to
+improve the matching process, but also for user management and personalization.
+First we use the user verification as a feedback mechanism. As the user gets
+concept suggestions we record their choice. They can not only indicate if they think a
+certain suggestion is good, but can also give negative feedback for bad suggestions.
+By accumulating this data we adjust the certainties of user suggestions. Suggestions
+for tags that many users agree on are considered to be better matches than suggestions
+that are often disapproved.
+Next, we can use the user feedback to build up user models that can be used for
+personalization and verification. By noting which resources are tagged and used by a
+user and which terms the user uses in his tags we can say something about the user
+interest.
+The most important for RHCe however is quality control using collaborative
+techniques. By a small addition in the user interface users have the possibility to rate
+current tags (and concepts) for a given resource. By measuring which users usually
+agree with the RHCe domain experts we can calculate which users might be the most
+valuable for RHCe and might give the opinion of these people more weight (i.e. make
+them more important in the system). This can be applied recursively by looking at
+users that have a high degree of agreement with the important users in the system,
+which might increase their importance as well. We are currently investigating several
+ways to further exploit the information we have.
+
+23
+
+5 Conclusion
+Most important for us is to continue and finalize the implementation of the
+different techniques that we described in this paper so that we obtain a rich toolset to
+time-efficiently assist a domain expert to provide high quality metadata for large
+uncharted datasets. One problem we are for instance also trying to tackle is how to
+add totally uncharted resources in the dataset. What we do not want is to consolidate
+a set of objects that every user has seen and tagged, while a large set of data is never
+seen. The challenge is find a way to integrate objects without metadata into user query
+results without giving the user the feeling that he gets wrong results.
+We are also collaborating with a selection of users to evaluate our techniques and
+features. In this way we work toward evaluation of our system by a representative set
+of users.
+
+6
+
+References
+
+1.
+
+Mäkelä, E., Hyvönen, E., Saarela, S.: Ontogator - A Semantic View-Based Search Engine
+Service for Web Applications. In: Proceedings of the International Semantic Web
+Conference, pp. 847--860, Springer, Heidelberg (2006)
+2. Yee, K.P., Swearingen, K., Li, K., Hearst, M.: Faceted metadata for image search and
+browsing, In: Proceedings of the SIGCHI conference on Human factors in computing
+systems, pp. 401--408, ACM, New York (2003)
+3. Michal Tvarožek, Mária Bieliková, Personalized Faceted Navigation for Multimedia
+Collections, In Proceedings of the Second International Workshop on Semantic Media
+Adaptation and Personalization, pp. 104--109, IEEE Press, New York (2007)
+4. Golder, S., Huberman, B.A.: Usage Patterns of Collaborative Tagging Systems. In:
+Journal of Information Science, vol. 32, no. 2, pp. 198--208, Sage Publications, Inc.
+Thousand Oaks, CA (2006)
+5. Halpin, H., Robu, V., Shepherd, H.: The complex dynamics of collaborative tagging, In:
+Proceedings of the 16th international conference on World Wide Web, pp. 211--220,
+ACM, New York (2007)
+6. Mika, P.: Ontologies Are Us: A Unified Model of Social Networks and Semantics, In:
+Proceedings of the International Semantic Web Conference, pp. 522--536, Springer,
+Heidelberg (2005)
+7. Marlov, C., Naaman, M., Boyd, D., Davis, M.: HT06, tagging aper, taxonomy, Flickr,
+academic article, to read. In: Proceedings of the seventeenth conference on Hypertext and
+hypermedia, pp. 31--40, ACM, New York (2006)
+8. Choi, S.O., Lui, A.K.: Web Information Retrieval in Collaborative Tagging Systems, In:
+Proceedings of the International Conference on Web Intelligence. pp. 352--355, IEEE
+Press, New York (2006)
+9. Specia, L., Motta, E.: Integrating Folksomonies with the Semantic Web. In: The Semantic
+Web: Research and Applications, pp. 624--639, Springer, Heidelberg (2007)
+10. Rahm, E., Bernstein, P.A.: A survey of approaches to automatic schema matching. In: The
+VLDB Journal, vol. 10, no. 4, pp. 334--350, Springer-Verlag, New York (2001)
+11. Aleksovski, Z., ten Kate, W., van Harmelen, F.: Ontology matching using comprehensive
+ontology as background knowledge, In: Proceedings of the International Workshop on
+Ontology Matching at ISWC 2006, pp. 13--24, CEUR (2006)
+
+24
+
+Augmenting a Content-based Recommender
+System with Tags for Cultural Heritage
+Personalization
+Pierpaolo Basile, Fabio Calefato, Marco de Gemmis, Pasquale Lops, Giovanni
+Semeraro, Massimo Bux, Cataldo Musto, and Fedelucio Narducci
+Universitá degli Studi di Bari, Dipartimento di Informatica
+via E. Orabona, 4 - 70126 - Italy
+{basilepp,calefato,degemmis,lops,semeraro,bux,musto,narducci}@di.uniba.it
+
+Abstract. Cultural heritage personalization and Web 2.0 joint research
+efforts have recently emerged in the attempt to build social and collaborative approaches to solve the problem of filtering content in the context of
+art museums. One way to tackle the problem of recommending artifacts
+to visitors is to take into account not only the official textual descriptions, but also the user-generated content, namely the tags, which visitors
+could use to freely annotate relevant works. The main contribution of the
+paper is a strategy that enable a content-based recommender system to
+infer user interests by using machine learning techniques both on static
+content and tags. Experiments were carried out by involving real users
+who annotated paintings from the Vatican picture-gallery. The main outcome is an improvement in the predictive accuracy of the tag-augmented
+recommender system compared to a pure content-based approach.
+
+1
+
+Introduction
+
+The importance of providing digital access to cultural heritage collections has
+been already acknowledged by museums for almost four decades [1]. More recently, museums have also recognized the importance of providing visitors with
+personalized access to artifacts [2]. Cultural heritage personalization refers to
+supporting visitors in the selection and filtering of preferred artifacts and their
+corresponding descriptions, and in the creation of personalized tours. For example, the PEACH project (Personal Experience with Active Cultural Heritage) [3]
+is a joint Italian-Israeli research collaboration for intelligent information presentation in museums. The goal of PEACH is to build an active, multimedia visitor
+guide, with strong personalization of all the information provided, so as to ensure
+that visitors, by expressing their affective attitude, are allowed to accommodate
+the museum tour according to their own interests and pace.
+Because recommender systems have proved to be useful in helping users access to desired information (especially in domains where they are not expert or
+familiar with), they have found their way also in the context of museums, to
+support visitors in fulfilling a personalized experience and tour when visiting
+
+25
+
+2
+
+artworks collections. For instance, the CHIP project (Cultural Heritage Information Personalization) [4] is a research effort for enhancing personalized access
+to the collections of the Rijksmuseum in Amsterdam. CHIP combines Semantic
+Web technologies and content-based algorithms for deducing visitors’ preference
+from a set of scored artifacts and then, recommending other artworks and related content topics. In particular, the recommendations of artworks are based
+on three properties, namely author, genre, and period.
+When providing recommendations in cultural heritage context, information
+about collections must be taken into account because it can be as important as
+the artifacts themselves. Furthermore, the recent Web 2.0 (r)evolution has radically changed the role of people from passive consumers of information to that of
+active contributors who create and share new content. One of the forms of usergenerated content (UGC) that has drawn more attention from the research community is tagging, which is the act of annotating resources of interests with free
+keywords, called tags, thus building a socially-constructed classification schema,
+called a folksonomy (folks + taxonomy). The Steve.museum consortium [5] has
+begun to explore the use of social tagging and folksonomy in cultural heritage
+personalization scenario, to increase audiences engagement with museums’ collections. Supporting social tagging of artifacts and providing access based on
+the resulting folksonomy open museum collections to new interpretations, which
+reflect visitors’ perspectives rather than curators’ ones, and helps to bridge the
+gap between the professional language of the curator and the popular language
+of the museum visitor. Preliminary explorations conducted at the Metropolitan
+Museum of Art of New York have shown that professional perspectives differ
+significantly from those of naı̈ve visitors. Hence, if tags are associated to artworks, the resulting folksonomy can be used as a different and valuable source of
+information to be carefully taken into account when providing recommendations
+to museum visitors. In this paper we have begun to investigate how to effectively
+combine existing content-based filtering algorithms with UGC, in the context of
+cultural heritage personalization. The goal of the paper can be formulated in
+form of a research question as follows:
+In the context of cultural heritage personalization, does the integration of UGC
+(i.e., tags) cause an increase of the prediction accuracy in the process of recommending artifacts to users?
+Content-based recommender systems analyze a set of documents, previously
+rated by an individual user, and learn a model or profile of user interests based
+on the features of the documents rated by that user[6]. The profile is exploited
+to recommend new relevant items. This paper presents an approach in which
+the process of learning user profiles is performed both on static content and
+UGC. This research was conducted within the CHAT project (Cultural Heritage
+fruition & e-learning applications of new Advanced multimodal Technologies),
+that aims at developing new systems and services for multimodal fruition of
+cultural heritage content. We gathered data from the collections of the Vatican picture-gallery, for which both images and detailed textual information of
+
+26
+
+3
+
+paintings were available, and letting users involved in the study both rate and
+annotate them with tags.
+The paper is structured as follows. Section 2 provides a description of our
+recommender system and how it handles users’ tagging activity when building
+user profiles. Section 3 provides the description of the experimental session carried out to evaluate the proposed idea, and a discussion of the main findings.
+Finally, Section 4 draws conclusions and provides directions for future work.
+
+2
+
+A Content-based Recommender System handling User
+Tags
+
+ITem Recommender (ITR) [7] is a content-based recommender system, developed
+at the University of Bari. The inceptive idea behind this paper is to include
+folksonomies in ITR by integrating static content describing the artworks of the
+collection with dynamic user-generated content. Tags are collected during the
+training step, by letting users: 1) express their preferences for items by entering
+a numerical rating and 2) annotate rated items with free tags.
+Figure 1 shows the general architecture of ITR. The recommendation process
+is performed in three steps, each of which is handled by a separate component.
+First, given a collection of documents, a preprocessing step is performed by the
+Content Analyzer, which uses the WordNet lexical database to perform Word
+Sense Disambiguation (WSD) on both static and dynamic content to identify
+correct senses, corresponding to concepts identified from words in the text. Then,
+a learning step is performed by the Profile Learner on the training set of documents, to generate a probabilistic model of the user interests. This model is the
+personal profile including those concepts that turn out to be most indicative of
+the user’s preferences. Finally, the Recommender component implements a naı̈ve
+Bayes text categorization algorithm, which is able to classify new documents as
+interesting or not for a specific user by exploiting the probabilistic model learned
+from training examples.
+
+Fig. 1. ITR architecture
+
+27
+
+4
+
+2.1
+
+Content Analyzer: Semantic Indexing of Static and Dynamic
+Content
+
+We propose a document representation that can be exploited as a starting point
+to build semantic user profiles based on the senses (meanings) of words found
+in the training documents.
+There are two crucial issues to address: First, a repository for word senses
+has to be identified; second, any implementation of sense-based document representation must solve the problem that, although words occur in a document,
+meanings do not, since they are often hidden in the context. Therefore, a procedure is needed for assigning senses to words: The task of WSD consists in
+determining which sense of an ambiguous word is invoked in a particular use of
+the word [8]. As for the sense repository, we adopted WordNet version 2.0. The
+basic building block for WordNet is the synset (SYNonym SET), a structure
+containing sets of words with synonymous meanings, which represents a specific
+meaning of a word. Our WSD algorithm, called JIGSAW, takes as input a document d = [w1 , w2 , . . . , wh ] encoded as a list of words in order of their appearance,
+and returns a list of WordNet synsets X = [s1 , s2 , . . . , sk ] (k ≤ h), in which
+each element sj is obtained by disambiguating the target word wi based on the
+semantic similarity of wi with the words in its context. Notice that k ≤ h because some words, such as proper names, might not be found in WordNet, or
+because of bigram recognition.
+Semantic similarity computes the relatedness of two words. We adopted the
+Leacock-Chodorow measure [9], which is based on the length of the path between
+concepts in a IS-A hierarchy. Since WSD in not the focus of the paper, we do
+not provide here the complete description of the strategy adopted. More details
+are reported in [10]. What we would like to point out here is that the WSD
+procedure allows to obtain a synset-based vector space representation, called
+bag-of-synsets (BOS), that is an extension of the classical bag-of-words (BOW)
+model. In the BOS model a synset vector, rather than a word vector, corresponds
+to a document.
+The ITR system is capable of providing recommendations for items in any
+domain (e.g., films, music, books), as long as item properties can be represented
+in form of textual slots. Hence, in the context of cultural heritage personalization,
+an artwork can be generally represented by at least three slots, namely artist,
+title, and description. Besides, provided that museum visitors have a digital
+support to annotate artifacts, tags can be easily stored in a fourth slot, say tags,
+which is not static as the other three slots because tags evolve over time.
+In systems supporting social tagging, the number of tags used to annotate
+a given resource tend to grow initially, and then to decrease because users tend
+to reuse existing tags, especially the most common ones. This phenomenon is
+known as tag convergence [11]. However, being free annotations, tags also tend
+to suffer from syntactic problems, like polysemy and synonymy, which hinder
+tag convergence. One way to cope with such a problem is to apply WSD to tags
+as well. This process allows the document representation model to evolve from
+
+28
+
+5
+
+using tags as mere keywords or strings, to using semantic tags and, consequently,
+semantic folksonomies of concepts.
+The text in each slot is represented by the BOS model by counting separately
+the occurrences of a synset in the slots in which it appears. More formally, assume
+that we have a collection of N documents. Let m be the index of the slot, for
+n = 1, 2, ..., N , the n-th document is reduced to four bag of synsets, one for each
+slot:
+m m
+m
+dm
+n = htn1 , tn2 , . . . , tnDnm i
+where tm
+nk is the k-th synset in slot sm of document dn and Dnm is the total
+number of synsets appearing in the m-th slot of document dn . For all n, k and
+m, tm
+nk ∈ Vm , which is the vocabulary for the slot sm (the set of all different
+synsets found in slot sm ). Document dn is finally represented in the vector space
+by four synset-frequency vectors:
+m
+m
+m
+fnm = hwn1
+, wn2
+, . . . , wnD
+i
+nm
+m
+is the weight of the synset tk in the slot sm of document dn and
+where wnk
+can be computed in different ways: it can be simply the number of times synset
+tk appears in slot sm or a more complex tf-idf score. All the text operations
+performed on documents are provided by a NLP tool developed at University of
+Bari, called META [12]. Our idea is that BOS-indexed documents can be used in
+a content-based information filtering scenario for learning accurate, sense-based
+user profiles, as discussed in the following section.
+
+2.2
+
+Profile Learner: Learning User Profiles from Static Content and
+UGC
+
+We consider the problem of learning user profiles as a binary Text Categorization
+task [13] since each document has to be classified as interesting or not with
+respect to the user preferences. Therefore, the set of categories is restricted to
+c+ , that represents the positive class (user-likes), and c− the negative one (userdislikes). The induced probabilistic model is used to estimate the a posteriori
+probability, P (cj |di ), of document di belonging to class cj .
+The algorithm adopted for inferring user profiles is a Naı̈ve Bayes text learning approach, widely used in content-based recommenders [6], which is not described here due to space limitations. What we would like to point out here is
+that the final outcome of the learning process is a probabilistic model used to
+classify a new document in the class c+ or c− . Given a new document dj , the
+model computes the a-posteriori classification scores P (c+ |dj ) and P (c− |dj ) by
+using probabilities of synsets contained in the user profile and estimated in the
+training step. An example of user profiles is depicted in Figure 2.
+The profile contains the user identifier and the a-priori probabilities of liking
+or disliking an item, apart from its content. Moreover, the profile is structured
+in two main parts: profile like contains features describing the concepts able to
+deem items relevant, while features in profile dislike should help in filtering out
+not relevant items. Each part of the profile is structured in four slots, resembling
+
+29
+
+6
+
+Fig. 2. A fragment of user profile
+
+the same representation strategy adopted for artworks. Each slot reports the
+features (WordNet identifiers) occurring in the training examples, with corresponding frequencies computed in the training step. Frequencies are used by
+the Bayesian learning algorithm to induce the classification model (i.e. the user
+profile) exploited to suggest relevant artworks in the recommendation phase.
+
+3
+
+Experimental Evaluation
+
+The goal of the experimental evaluation was to compare the predictive accuracy
+of our recommender system when 1) user profiles are learned from static content
+only; 2) both static content and UGC are used in the learning process.
+In addition, to properly investigate the effects of including social tagging in
+the recommendation process, a distinction has to be made between considering,
+for an artifact rated as interesting by a user, either the whole folksonomy (i.e.,
+the community tags used by all visitors to annotate that artifact), or only the
+tags entered by that user for that artifact (i.e., the user’s contribution to the
+whole artifact folksonomy). For this purpose, we designed several experiments,
+described in the following.
+
+30
+
+7
+
+3.1
+
+Users and Dataset
+
+The dataset considered for the experiments is represented by 45 paintings chosen
+from the collection of the Vatican picture-gallery. The dataset was collected
+using screenscraping bots, which captured the required information from the
+official website1 of the Vatican picture-gallery. In particular, for each element
+in the dataset an image of the artifact was collected, along with three textual
+properties, namely its title, artist, and description.
+We involved 30 users who volunteered took part in the experiments. The
+average age of the users was in the middle of twenties. None of the users was an
+art critic or expert.
+Users were requested to interact with a web application (Figure 3), in order
+to express their preferences for all the 45 paintings in the collection. The preference was expressed as a numerical vote on a 5-point scale (1=strongly dislike,
+5=strongly like). Moreover, users were left free to annotate the paintings with
+as many tags as wished. For the overall 45 paintings in the dataset, 4300 tags
+were used.
+
+Fig. 3. Gathering user ratings and tags
+
+3.2
+
+Design of the Experiment and Evaluation Metrics
+
+Since ITR is conceived as a text classifier, its effectiveness can be evaluated by
+classification accuracy measures, namely Precision and Recall [14].
+1
+
+http://mv.vatican.va/3 EN/pages/PIN/PIN Main.html
+
+31
+
+8
+
+Precision (Pr) is defined as the number of relevant selected items divided
+by the number of selected items. Recall (Re) is defined as the number of relevant selected items divided by the total number of relevant items available. F1
+measure, a combination of precision and recall, is also used to have an overall
+measure of predictive accuracy:
+F1 =
+
+2 × Re × P r
+P r + Re
+
+We adopted these specific measures because we are interested in measuring how
+relevant a set of recommendations is for a user. In the experiment, a painting is
+considered as relevant by a user, if the rating is greater than or equal to 4, while
+ITR considers a painting as relevant if the a-posteriori probability of class likes
+is greater than 0.5. We designed 5 different experiments, depending on the type
+of content used for training the system:
+– Exp #1: Static Content - only title, artist and description of the painting, as collected from the official website of the Vatican picture-gallery
+– Exp #2: Personal tags - only tags provided by a specific user on a specific
+painting
+– Exp #3: Social tags - all the tags provided by all the users on a specific
+painting
+– Exp #4: Static Content + Personal tags
+– Exp #5: Static Content + Social tags
+All experiments were carried out using the same methodology, consisting in
+performing one run for each user, scheduled as follows:
+1.
+2.
+3.
+4.
+
+select the appropriate content depending on the experiment being executed;
+split the selected data into a training set Tr and a test set Ts;
+use Tr for learning the corresponding user profile;
+evaluate the predictive accuracy of the induced profile on Ts.
+
+The methodology adopted for obtaining Tr and Ts was the K-fold cross
+validation [15], with K = 5. Given the size of the dataset (45), applying a 5fold cross validation technique means that the dataset is divided into 5 disjoint
+partitions, each containing 9 paintings. The learning of profiles and the test of
+predictions were performed in 5 steps. At each step, 4 (K-1) partitions were used
+as the training set Tr, whereas the remaining partition was used as the test set
+Ts. The steps were repeated until each of the 5 disjoint partitions was used as
+the Ts. Results were averaged over the 5 runs.
+3.3
+
+Discussion
+
+Results of the 5 experiments are reported in Table 1, averaged over the 30 users.
+The main finding is that the integration of UGC (whether social or personal
+tags) causes an increase of precision in the process of recommending artifacts
+
+32
+
+9
+Table 1. Results of the K-fold Cross Validation
+Type of content
+Precision Recall F1
+Exp #1: Static Content
+75.86
+94.27 84.07
+Exp #2: Personal Tags
+75.96
+92.65 83.48
+Exp #3: Social Tags
+75.59
+90.50 82.37
+Exp #4: Static Content + Personal Tags
+78.04
+93.60 85.11
+Exp #5: Static Content + Social Tags
+78.01
+93.19 84.93
+
+to users. More specifically, precision of profiles learned from both static content
+and tags (hereafter, augmented profiles) outperformed the precision of profiles
+learned from either static content (hereafter, content-based profiles) or just tags
+(hereafter, tag-based profiles). The improvement ranges between 2% and 2.40%.
+Another interesting finding is that precision of content-based profiles is comparable with that of tag-based profiles. Although this result may suggest that just
+tags are sufficient for providing accurate recommendations, a decrease of recall
+(-1.62% with personal tags, -3.77% with social tags) actually shows that static
+content cannot be neglected even if tags are available. The higher decrease of
+recall registered with social tags leads to conclude that community tags introduce some noise in the recommendation process (relevant paintings are filtered
+out due to wrong advice by other users). The general conclusion of the comparison between content-based profiles and augmented profiles is that a significant
+increase of precision corresponds to a slight and physiological loss of recall. The
+overall accuracy of augmented profiles (F1 about 85%) is considered satisfactory.
+
+4
+
+Conclusions and Future Work
+
+In this paper we have investigated how to effectively combine existing contentbased filtering algorithms with UGC, in the context of cultural heritage personalization. The main contribution of the paper is an approach in which machine
+learning techniques are adopted to infer user profiles both from static content,
+as in classical content-based recommender, and UGC, namely tags provided by
+users to freely annotate artworks. The main outcome of the experiments performed to evaluate the proposed approach is that the integration of UGC causes
+an increase of precision in the process of recommending artifacts to users.
+By definition, social tags used for annotating a painting include personal
+tags. However, the findings from the experiments with social tags ran counter
+our expectation because, as compared to the use of personal tags only, a decrease
+of precision and recall was observed. To gain more insights on the effects of
+community-generated content, we need to 1) perform an analysis of what tags
+are used to build the folksonomies and how they affect the user profile generation;
+2) replicate the experiments with a more heterogeneous community, involving
+experts in the art domain so as to identify differences with the tagging activity
+of naı̈ve users.
+
+33
+
+10
+
+Acknowledgements
+This research was funded by MIUR (Ministero Universitá e Ricerca) under
+the contract Fondo per le Agevolazioni alla Ricerca, D.L: 297/99 “CHAT Cultural Heritage fruition & e-learning applications of new Advanced (multimodal) Technologies” (2006-2008).
+
+References
+1. Ellin, E.: Museums and the computer: An appraisal of new potentials. Language
+Resources and Evaluation 4(1) (1969) 25–30
+2. Aroyo, L., Kuflik, T., Stock, O., Zancanaro, M., eds.: Proc. of Workshop on Personalized Access to Cultural Heritage (PATCH ’07). (2007)
+3. Stock, O., Zancanaro, M., Busetta, P., Callaway, C., Krüger, A., Kruppa, M.,
+Kuflik, T., Not, E., Rocchi, C.: Adaptive, intelligent presentation of information
+for the museum visitor in peach. UMUAI 17(3) (2007) 257–304
+4. Wang, Y., Aroyo, L., Stash, N., Rutledge, L.: Interactive user modeling for personalized access to museum collections: The rijksmuseum case study. In Conati,
+C., McCoy, K.F., Paliouras, G., eds.: User Modeling 2007, Proceedings of the 11th
+International Conference. Volume 4511 of LNCS., Springer (2007) 385–389
+5. Trant, J., Wyman, B.: Investigating social tagging and folksonomy in art museums
+with steve.museum. In: Collaborative Web Tagging Workshop at WWW2006,
+Edinburgh, Scotland. (May 2006)
+6. Mladenic, D.: Text-learning and related intelligent agents: a survey. IEEE Intelligent Systems 14(4) (1999) 44–54
+7. Degemmis, M., Lops, P., Semeraro, G.: A content-collaborative recommender that
+exploits wordnet-based user profiles for neighborhood formation. User Model. UserAdapt. Interact. 17(3) (2007) 217–255
+8. Manning, C., Schütze, H.: 7: Word Sense Disambiguation. In: Foundations of
+Statistical Natural Language Processing. The MIT Press (1999) 229–264
+9. Leacock, C., Chodorow, M., Miller, G.: Using corpus statistics and wordnet relations for sense identification. computational linguistics. Computational Linguistics
+24(1) (1998) 147–165
+10. Semeraro, G., Degemmis, M., Lops, P., Basile, P.: Combining learning and word
+sense disambiguation for intelligent user profiling. In: Proceedings of the Twentieth
+International Joint Conference on Artificial Intelligence IJCAI-07. (2007) 2856–
+2861 M. Kaufmann, San Francisco, California. ISBN: 978-I-57735-298-3.
+11. Sen, S., Lam, S.K., Rashid, A.M., Cosley, D., Frankowski, D., Osterhouse, J.,
+Harper, F.M., Riedl, J.: Tagging, communities, vocabulary, evolution. In: Proceedings of the 20th conference on Computer supported cooperative work, New
+York, NY, USA, ACM (2006) 181–190
+12. Basile, P., de Gemmis, M., Gentile, A., Iaquinta, L., Lops, P., , Semeraro, G.:
+META - MultilanguagE Text Analyzer. In: Proc. of the Language and Speech
+Technnology Conference - LangTech 2008, Rome, Italy. (2008) 137–140
+13. Sebastiani, F.: Machine learning in automated text categorization. ACM Computing Surveys 34(1) (2002) 1–47
+14. Herlocker, J.L., Konstan, J.A., Terveen, L.G., Riedl, J.T.: Evaluating collaborative
+filtering recommender systems. ACM Trans. Inf. Syst. 22(1) (2004) 5–53
+15. Kohavi, R.: A study of cross-validation and bootstrap for accuracy estimation and
+model selection. In: IJCAI. (1995) 1137–1145
+
+34
+
+Industrial Archaeology: Case study of Knowledge
+Management for Spatial Data of Findings
+Ashish Karmacharya1,2, Christophe Cruz2, Franck Marzani2, Frank Boochs1
+1
+
+Institut i3mainz, am Fachbereich 1 - Geoinformatik und Vermessung
+Fachhochschule Mainz, Holzstrasse 36, 55116 Mainz
+{ashish, boochs}@geoinform.fh-mainz.de
+2
+
+Laboratoire Le2i, UFR Sciences et Techniques,
+Université de Bourgogne B.P. 47870, 21078 Dijon Cedex, France
+{christophe.cruz, franck.marzani}@u-bourgogne.fr
+
+Abstract. Shifting from conventional approaches to an unusual approach in
+industrial archaeology, we suggest the use of a web platform based on semantic
+web technologies and knowledge management. This platform is used to store
+data during the excavation process and to manage knowledge acquired during
+the identification process of the findings. The principle of our approach consists
+in using semantic annotations in order to have a semantic view on data sets. The
+shared ontology that defines an index on the semantic annotations allows us to
+build a global schema between data sources. This global schema allows
+annotating, indexing, searching and retrieving data and documents.
+Keywords: Industrial archaeology, knowledge management, information
+system, ontology, owl, spatial data
+
+1 Introduction
+Oriented data management is widely used in archaeological projects to store and
+retrieve data generated during the excavation process. Today, with the rapid growth of
+advance technologies it is possible to generate huge amount of data in short time.
+Hence, it has become problematic to manage data with the conventional methods.
+This has prompted huge researches in the field of data indexation and information
+retrieval in order to reach a better level of data management. The level consists of
+identifying and managing knowledge from the data collected during excavation.
+Today, as different technologies are being used during excavation, different pattern of
+data are generated. Primary source of data in any excavation site is the set of point
+clouds obtained through the terrestrial laser scanning process. They are generally used
+for creating 3D object models. Besides, floor plans, images and other data like
+archaeological notes are collected during the project. They provide great value in
+analysis of the archaeological findings in any project. The process of identifying and
+storing data from findings is a process of knowledge capitalization on archeological
+sites. Industrial archeology generates a huge amount of data in a very short time due
+to the fact that industrial archeological sites are available only for a very short time.
+
+35
+
+Thus, the collected data is stored during the process in a repository without any
+relevant structure. Once data are stored, the process of identification of industrial
+findings with the help of the data repository is carried out. Two main issues need to be
+addressed here – first about the data structure for efficient access of data and second –
+the process allowing archaeologists to have efficient retrieval of the findings from the
+above repository. Shifting from conventional approaches, we suggest the use of web
+platform through semantic web technologies and knowledge management. The
+platform is used in both storing data during excavation process and in managing
+knowledge acquired during identification process. The collaborative process between
+archeologists is facilitated by the platform in order to generate knowledge from the
+data set once the data are stored in relevant data structure. The principle of the
+approach is to use semantic annotation to have semantic view on the data sets. The
+shared ontology that defines an index on the semantic annotations allows us to build
+the global schema between the data source. This global schema allows annotating,
+index, searching and retrieving data and documents.
+
+2 Data and Knowledge Management
+There has been many research works in the field of 3D Object Modeling but most of
+them focus on some specialized area and do not cover the whole. However, projects
+like 3D MURALE [1] and DILAS [2] attempts to take other factors into account
+making them most comprehensive. 3D MURALE system is composed of a recording
+component, a reconstruction component, a visualization component and database
+components. The findings are managed through a database management system. Once
+the findings are stored in the database with a proper data structure, the objects are
+reconstructed through the reconstruction component. This is done by modeling the
+objects in 3D space. These 3D models are displayed in the visualization component.
+DILAS is a generic, fully object oriented model for 3D geo-objects. The 3D geometry
+model is based on a topologically boundary representation and supports most basic
+geometry types. It incorporates also the concept of multiple levels of detail (LOD) [3]
+as well as texture information. As most of the research works are geometry
+management oriented, they lack semantic information. Actually, semantic information
+allows the management of knowledge on geometrical objects. An interesting approach
+on how to represent an object through the semantic information in a 3D scene has
+been discussed in [8]. The use of spatial and orientation relationships between objects
+can represent the objects in an adequate manner with respect to its surrounding.
+Knowledge about documents has traditionally been managed through the use of
+metadata. The Web semantic proposes to annotate the document content using
+semantic information from domain ontologies [4]. The result is a set of Web pages
+interpretable by machine with the help of mark-ups. The goal is to create annotations
+(manually or automatically) with well-defined semantics. In the Semantic Web
+context, the content of a document can be described and annotated using RDF and
+OWL. Semantic Web annotation brings benefits of two kinds to this platform enhanced information retrieval and improved interoperability. Information retrieval is
+
+36
+
+improved by the ability to perform searches, which exploit the ontology in order to
+make inferences about data from heterogeneous resources [7].
+Our platform aims at not only managing the concepts defined to annotate documents
+(which most of the research projects currently focusing on), but also the instances of
+concepts with their own property values. In this manner, an object found in a point
+cloud can be linked, with the help of an instance in the ontology to other documents
+that contain the same object. The second aim of our platform is to give archaeologists
+the possibility to manage Wikipedia pages on findings. These Wikipedia pages
+represent the knowledge formalized by archaeologists and are managed through a 3D
+scene where 3D objects are linked to Wikipedia pages.
+
+3 Data pattern and format
+The case study site is the Krupp factory in Essen, Germany. The 200 hectares area
+was used for steel production during early 19th century and was destroyed in Second
+World War. Most of the area has never been rebuilt and thus provides an ideal site for
+industrial archaeological excavation. The area will be used as a park of the
+ThyssenKrupp main building in 2010. Actually, we are running out of time to collect
+data. The first challenge consists in creating a relevant data structure which helps in
+retrieving those data efficiently. In addition, the data which have to be collected are
+huge so the system should be able to handle a huge data set. The nature of the dataset
+generated during the project contain heterogeneous. They range from scanned point
+cloud from terrestrial laser scanners to the floor plans of old archive. The primary
+source of geometric information is provided through the point cloud. The point clouds
+have resolutions of 0.036 degree and are in Gauss Krüger coordinate system (GK II).
+It is the main data set used for the 3D object modeling. Beside point clouds, huge
+amount of images are also collected during the excavation. Most of the images are
+taken with non calibrated digital camera so do not contain any information about the
+referencing system. Those images posses vital semantic information and could be
+used for the formulation of knowledge. However, there were photogrammetric flights
+to acquire aerial images of the area. The aerial images were processed to generate a
+digital orthophoto with a resolution of 10 cm and is again in Gauss Krüger
+referencing system (GK II). Additionally, huge archive data have been collected.
+Those data contains floor plans of the buildings and other semantic information.
+Likewise, the notes taken by archaeologists are also important to acquire semantic
+information of the findings. ArcGIS databases are also available depending on the site
+and its nature. These databases are in the GK II reference system. For our example,
+this database gives an overview of the site and can be overlayed with the orthophoto
+in order to identify the interesting locations easily.
+
+4 Principle and method
+The scenario of the case study consists of three steps. The first step is to annotate
+semantic information in the excavation data to identify the findings in the document.
+
+37
+
+Then during the second step a relationship should be formulated between documents
+of same industrial finding. The third step consists in managing semantic objects in
+order to manage the knowledge with the help of Wikipedia pages. First of all it is
+necessary to consider the storing structure of the repository and the services that will
+be available to store and search data on the various data sets. Geometric and semantic
+relationships between various objects should be taken into account for efficient
+management of the objects. The simplest approach would be to store the objects with
+respect to a 2D map through the bounding boxes. The images of those objects taken
+from different view points are then related to the respective objects’ bounding box by
+referencing them against the map. Similarly, the points of view of those images are
+referenced to their respective points in the map. The theory is similar to the scanned
+point clouds. The geometries of the objects are stored in the database and linked them
+through the bounding boxes with the 2D map. A similar process is also applied to
+other datasets. Every datasets are transformed in a common referencing system with
+respect to the referencing system of the 2D map. Thus, all the datasets are linked
+through a common referencing system and becomes easier to extract information. The
+second step should require archaeologists to annotate the documents indexed in 2D
+map and identify the common archaeological findings in order to create knowledge. It
+is very important to involve archaeologists in this step as they are the best person to
+identify the findings. They are the one who should determine the rules through those
+annotations to generate the knowledge. These rules between the objects will help to
+enrich the knowledge base and should be incorporated within the ontology. Thus, the
+ontology will help to create a relationship between the documents. The ontology and
+the instances of the ontology classes will be defined by archaeologists. In addition,
+they will also define industrial objects in relation to the documents indexed in the 2D
+map. The last step, the findings during the excavation should be managed properly
+with the knowledge discovered in the archaeological site. Ontology plays a major part
+in achieving it. All the findings are referenced against the 2D map through the
+bounding boxes as semantic objects in the ontology. This could be roughly termed as
+semantic mapping and is of great value to the archaeological process to determine
+different behaviors of object in different scenarios. Additionally, those semantic
+annotations can be interpreted by the machine to be shared, published, queried or used
+in more general way.
+The architecture of the proposed system consists of three levels. The first level is
+the Syntactic level and about the indexation of all data and documents in a 2D map. It
+is composed with RDBMS (Relational Data Base Management System) that allows us
+to store geometrical data. Database systems like Oracle 11g or PostgreSQL have their
+own spatial extension to store the geometric information and can perform spatial
+operations. The second level represents the semantic index composed of semantic
+annotations. This level defines the nature of data and documents and defines
+relationships between semantic objects. This level is called the ontological level and
+represents a bridge between interpretative semantics in which users interpret terms
+and operational semantics in which computers handle symbols [5]. The last level is
+the highest level and the most concrete one which represents the organization of the
+knowledge on the semantic map. Our platform is close to the semantic extension of
+Wikipedia [6], but data handling and managing extends beyond textual data. The
+platform will guide archeologist in order to define Wikipedia pages concerning
+
+38
+
+subjects and objects of the site that represent knowledge added by archeologist. This
+level is called the knowledge level because it represents the specification of the
+knowledge of archeologists concerning the industrial findings.
+
+5 Conclusion
+We have presented a platform based on knowledge management which is used to
+handle archaeological data. We are currently prototyping our architecture using JENA
+on PostgreSQL. The process works on computers in a local network. To implement
+the framework, we are using JENA (Semantic Web Framework for Java) [9] in order
+to build and to manage ontologies in JAVA. JENA helps us to handle an OWL
+database. We use the request language of JENA to retrieve data. What was not
+presented here is the collaborative process between archaeologists. The next issue to
+resolve is the collaborative work on the ontology which will enable all archaeologists
+to work on the same Wikipedia page.
+
+References
+1. Cosmas, J., Itagaki, T., Green, D., Grabczewski, E., Waelkens, M., Degeest, R.,: 3D
+MURALE: A Multimedia System for Archaeology, Proc. ACM Virtual Reality,
+Archaeology and Cultural Heritage (2001)
+2. Wüst T., Nebiker S. Landolt R., Applying the 3D GIS DILAS to Archaeology and Cultural
+Heritage Projects-Requirements and First Results, Basel University of Applied Sciences,
+Muttenz, Switzerland (2004)
+3. Balletti, C., Guerra, F., Adami, A,. 3D Multiresolution Representations in Archaeological
+Sites, CIPA 2005 XX International Symposium,Torino, Italy, (2005)
+4. Berners-Lee, T., Hendler, J., Lassila, O.: The Semantic Web, Scientific American (2001)
+5. Guarino N., The ontological level, in R. Casati B. S. & White G., eds, Philosophy and the
+cognitive sciences, Hölder-Pichler-Tempsky (1994)
+6. Völkel, M., Krötzsch, M., Vrandecic, D., Haller, H., and Studer, R.: Semantic Wikipedia. In
+Proceedings of the 15th international Conference on World Wide Web (Edinburgh,
+Scotland, 2006). WWW '06. ACM, New York, NY, 585-594 (2006)
+7. Uren, V., Cimiano, P., Iria, J., Handschuh, S., Vargas-Vera, M., Motta, E., Ciravegna F.:
+Semantic annotation for knowledge management: Requirements and a survey of the state of
+the art, Journal of the Web Semantics: Sciences and Agents on the World Wide Web 4,
+Elsevier,14-18 (2006)
+8. Web Ontology Language (OWL), http://www.w3.org/2004/OWL/
+9. McCarthy,
+P.,:
+Introduction
+to
+Jena,
+[Online]
+Available:
+http://www128.ibm.com/developerworks/java/library/j-jena/ (2004)
+
+39
+
+Personalised Support to Examine Context
+Dependency between History of Science Events
+Ilaria Corda, Vania Dimitrova, and Brandon Bennett
+School of Computing, University of Leeds, UK
+{ilaria,vania,brandon}@comp.leeds.ac.uk
+
+Abstract. Users access digital library content to fulfill task-specific
+searches. In this position paper, we argue that semantically driven approaches are needed to offer personalised access to historical collections.
+We consider a case study in the History of Science and illustrate how an
+ontology can be used to generate personalised, contextualised reference
+space in order to help users examine the context of scientific events.
+Key words: Personalisation, History of Science, Ontology
+
+1
+
+Introduction
+
+The remarkable growth of digital content leads to its wide availability to a large
+diversity of users. User access to digital resources is based on specific tasks,
+needs, and requirements, and is influenced by the users’ background and preferences. Hence, personalisation can play a crucial role in enhancing user access
+to digital content by reducing information overload and helping users find the
+most relevant resources.
+Current advances in personalised access to digital content deal mostly with
+museums, online exhibitions, and 3D digital dossiers of artwork installations[10][5].
+The key issues in such applications are modelling the visitors’ interests and recommending items the users may wish to see [1]. Research has focused on nonintrusive ways for gathering users’ preferences by deriving behaviour patterns,
+which can be combined with explicit user ratings [10]. Another issue relevant to
+museum domains is to enhance the chance of post-visits and improve the users’
+experience by offering resources based on their previous visits [3]. Recent research
+shows that semantically-enhanced approaches can improve personalisation in online museum collections, e.g. ontologies have been used to generate navigation
+paths based on user interests [2], improve the user modelling algorithms [12], or
+to recommend connected content based on geo-spatial links [7].
+In museum collections, the users are mainly from the general public and personalisation is driven mostly by user preferences and interests. These approaches
+are insufficient for personalisation in digital libraries, where users belong to specialised categories and commonly have task-specific search needs [6]. Digital
+libraries are vehicles for gaining knowledge on a topic. Users searching through
+digital libraries can be researchers, students, or subject specialists, who come
+
+40
+
+2
+
+Ilaria Corda, Vania Dimitrova, Brandon Bennett
+
+with different background and look for content to accomplish particular tasks.
+Therefore, we argue that effective approaches for personalisation in digital libraries should be task-based rather than interest-based, and should take into
+account the specific user categories and their goals when searching for content.
+In addition, the specificity of the domain is projected into the user tasks.
+For example, when searching through Chemistry or Biology digital collections,
+researchers may wish to compare all experiments related to a particular phenomenon, while in a History domain users primarily investigate the dependency
+between historical events [4]. We argue that an appropriate description of the
+domain, in the form of an ontology, should be exploited for providing task-driven
+personalisation in digital libraries. As advocated by [9], modelling time dependency is a crucial requirement in order to deal with more advanced demands in
+historical domains, such as uncertainty (missing or unknown information), subjectivity (multiple interpretations), and vagueness (unprecise temporal boundaries). Furthermore, representing time dependency between historical events appears a critical requirement underlying task-based trajectory planning in digital
+collections.
+This position paper points at the need for personalisation to help users find
+relevant resources in the History of Science. We proposes the use of an ontology to
+generate a contextualised reference space tailored to the user’s task and domain
+background, and illustrate how this space can be used to help users examine the
+surrounding context of History of Science events.
+
+2
+
+Digital content used in the History of Science
+
+The History of Science studies how people’s understanding of science is changing
+over time. It is considered a subfield of the History of Ideas which more broadly
+studies the manifestations and changes of human ideas over time. The History
+of Science is a unique blend of History, Philosophy, Science, and Sociology which
+does not correspond to the history of particular sciences or merely to a sum
+of those. Instead, while scientific disciplines themselves are characterized by a
+strong dimension of technicality, the History of Science primarily focuses on the
+impact of social and philosophical influences to which all scientific advancements
+are subjected [11].
+History of Science content can be structured in primary and secondary 1 :
+– Primary content: textual materials - published works such as books, pamphlets, theses, letters, etc; unpublished writing or manuscripts such as notebooks, diaries, projects; interviews.
+– Primary content: non textual materials - scientific instruments, iconographic
+materials such as maps, photographs, drawings; objects studied by scientists.
+1
+
+de Andrade Martins, R.: International Databases on History of Science
+Sources, Strategies for the Developments of Databases, 2003 Available at:
+http://www.ifi.unicamp.br/ ghtc/sources/sources1.htm
+
+41
+
+Personalised Support to Examine Context Dependency
+
+3
+
+– Secondary content - historiographic studies, biographies, contextual sources
+such as cultural and political information about a scientific period; interdisciplinary works or works in related fields (mainly from Philosophy of Science
+or Sociology of Science).
+With the recent advancement in digitisation, many of the above resources
+have been made electronically available. A computational representation of these
+materials is defined as digital tertiary sources of information 2 , which include
+library catalogues, databases, archives, digital collections, and repositories.
+Historians of Science are studying in general how science functions, the relationships between science and society, why and how a community accepts, rejects
+or refuses certain scientific results. For this, they are increasingly using digital
+tertiary sources, e.g. Sciper 3 (an electronic index collecting nineteenth-century
+general periodicals of Science, Technology and Medicine), Starry Messenger 4 (a
+History of Astronomy collection developed by the Whipple Museum which includes mainly web pages referring to additional recommended reading), Guide
+to the History of Science 5 (wide range of resources for professionals and scholars
+such as reference works, funding information, directory of journals, conferences
+announcements, museums, special collections), PhilSci Archive 6 (e-prints in Philosophy of Science).
+The existing History of Science collections provide general search functionalities, some of which exploit metadata. A common problem is that the search is
+fully dependent on the user’s expertise and the appropriateness of the key words
+specified by him/her. For instance, if the users searches for Kepler, he/she will
+only get resources directly related to this scientist, e.g. Kepler’s laws of planetary
+motion or the Rudolphine Tables. A wider context including relevant Scientific
+Revolution events, connected scientists, etc. will not be provided, unless the user
+explicitly asks for this, e.g. Kepler was Brahe’s assistant. Semantic support has
+not been explored to enhance search functionality, as well as the user’s tasks and
+general background have not been taken into account. Next, we will propose how
+an ontology-based approach can be used to provide task-driven support when
+examining the context of historical events.
+
+3
+
+Personalised Support to Examine Context Dependency
+
+Scientific events are in general situated occurrences. A most common task when
+researching History of Science content is to examine the context of a particular
+event. If we consider an event E, its context can include other events that happened in the same time as E, the scientists involved in E and in the surrounding
+2
+
+3
+4
+5
+6
+
+de Andrade Martins, R.: International Databases on History of Science
+Sources, Strategies for the Developments of Databases, 2003 Available at:
+http://www.ifi.unicamp.br/ ghtc/sources/sources1.htm
+Sciper Collection: http://www.sciper.leeds.ac.uk/index.htm
+Starry Messenger: http://www.hps.cam.ac.uk/starry/
+Guide to the History of Science: http://www.hssonline.org/guide/
+PhilSci Archive: http://philsci-archive.pitt.edu/
+
+42
+
+4
+
+Ilaria Corda, Vania Dimitrova, Brandon Bennett
+
+events, the reciprocal influences on the scientific achievements, the political and
+social situation at the time of E, the geographically linked events to E, etc.
+For example, assume that a user U examines the scientific event E=invention
+of the telescope by Galileo in 1609. U would need to find information about the
+Heliocentric System, which was claimed to be true and required strong proof
+of concept, for which the telescope was one of the main tools. Furthermore, U
+would need to examine related events leading to major discoveries in Optics
+around the time of E. Depending on the background of the user, he/she may be
+presented with a dynamically composed contexualised reference space to examine
+particular aspects of the context of E. For example, a student may be directed
+to the Starry Messenger (the major galilean treatise based on observations made
+through the telescope), while a researcher can be directed in addition to relevant interdisciplinary sources, e.g. Transactions of the Optical Society points at
+relevant accomplishments in Optics related to the invention of the telescope.
+Context dependency can be helpful for studying controversies - one of the
+most exciting aspects examined by the History of Science [8]. Controversies are
+contradicting views or ideas which have coexisted at the same time period because the scientific communities could not reach an agreement. For instance,
+imagine that a user U is examining the coexistence of two contradicting systems S1=Ptolematic-Aristotelian cosmology and S2=Copernican-Galilean cosmology. S1 and S2 coexisted together throughout the 17th century. Although
+there was strong evidence for the validity of S2, the official oppositions to the
+Heliocentrism by the Roman Church imposed S1. In this case, simply pointing
+at resources would not be beneficial for U , especially if U does not have much
+knowledge of the two systems. It will be helpful instead to first point to U helpful
+information from the contexts of S1 and S2, such as the major points where the
+two systems contradict and the supporters and opponents of each system. U can
+then be referred to relevant primary and secondary sources related to both S1
+and S2.
+The above functionality would require the following components:
+– Access to digital collections with appropriate metadata linked to
+an ontology. Currently, we are considering the possibility to have access to
+Sciper which has been developed at the University of Leeds.
+– Domain ontology describing the History of Science events. It should
+enable reasoning about contextual information. We are using an ontology developed in our earlier research [4] which includes classes and relations about
+the domain. For example, the main relations (e.g. invent or work with) can
+be seen as a semantic network through which U will be taken. Those might
+support the user’s navigation trajectories by taking U to the appropriate
+contextual reference space based on his/her background and tasks.
+– User conceptual model. We assume that the representation of this model
+will follow closely the representation of the domain ontology, so that an appropriate mapping between both models can be done. The user’s conceptual
+model can be used to refine the context space of an event and to decide what
+content the user should be referred to.
+
+43
+
+Personalised Support to Examine Context Dependency
+
+4
+
+5
+
+Current State and Future Work
+
+We have developed a History of Science ontology that illustrates how to conceptualise and reason about a historical domain, focusing on representing and
+reasoning about temporal dependencies between scientific events [4]. This enables us to perform general queries to extract the context of a scientific event,
+combining what, who, where, and when queries. We are currently developing
+a web-based interface to show how the ontology can be used to automatically
+generate contextual information about an event that can be used to offer links
+to relevant resources. Our next step will be to consider how to represent the
+background of a user and to take it into account when refining the contextual
+reference space.
+
+References
+1. Lora Aroyo, Rogier Brussee, Peter Gorgels, Natalia Stash, and Yiwen Wang. Personalized museum experience: The rijksmuseum use case. In Museums on the Web
+2007, San Francisco, CA, 2007.
+2. Charles Callaway and Tsvi Kuflik. Using a domain ontology to mediate between a
+user model and domain applications. In In Proc. of the 1st International Workshop
+on New Technologies for Personalized Information Access, 2005.
+3. Trevor Collins, Paul Muholland, and Zdenek Zdrahal. Semantic browsing of digital
+collections. In In the Proc. of the 4th International Semantic Web Conference,
+(ISWC05), 2005.
+4. Ilaria Corda. Ontology-based representation and reasoning about the history of
+science. Master’s thesis, School of Computing, University of Leeds, 2007.
+5. Anton Eliens and Yiwen Wang. Rate, recommend, regret - an expert-based approach to the personalization of guided tours. In In the Proc. of Workshop on
+Personalization Enhanced Access to Cultural Heritage (PATCH07), 2007.
+6. Yannis Ioannidis, WolfTilo Balke, Tiziana Catarci, Rosta Farzan, and Jacek Gwizdka. Do digital libraries require anything special from personalization? In 10th
+Delos Thematic Workshop (PersDL 2007), 2007.
+7. Tomi Kauppinen, Jari Vaatainen, and Eero Hyvonen. Creating and using geospatial
+ontology time series in a semantic cultural heritage portal. In European Semantic
+Web Conference (ESWC), 2008.
+8. Peter K. Machamer, Marcello Pera, and Aristides Baltas. Scientific Controversies:
+Philosophical and Historial Perspectives. Oxford University Press, 2000.
+9. G. Nagypal, R. Deswarte, and J. Oosthoek. Applying the semantic web: The vicodi
+experience in creating visual contexualization for history. Literary and Linguistic
+Computing, 20(3):pages 327–349., 2005.
+10. Lloyd Rutledge, Lora Aroyo, Rogier Brussee, Natalia Stash, Yiwen Wang, Henriette
+Cramer, Vanessa Evers, and Satyan Ramlal. Recommendation with semantics for
+cultural heritage. In In Proc. of Workshop on Personalised Access to Cultural
+Heritage (PATCH), 2007.
+11. George Sarton. A Guide to the History of Science. Chronica Botanica Company,
+1952.
+12. Yiwen Wang, Lora Aroyo, Natalia Stash, and Lloyd Rutledge. Interactive user
+modeling for personalized access to museum collections: The rijksmuseum case
+study. In In Proc. of the 11th Int. Conf. on User Modeling (UM07), 2007.
+
+44
+
+Supporting Navigation Over Context-Limited
+Historical Digital Library Data
+Jing Chen, Lorraine McGinty, Jian Shen∗ and Helen Brosnan
+School of Computer Science & Informatics, University College Dublin (UCD), Ireland
+∗
+School of Information & Library Studies, University College Dublin (UCD), Ireland
+{jing.chen,lorraine.mcginty,jian.shen,helen.brosnan}@ucd.ie
+
+Abstract. This project focuses on one of Ireland’s rare historical collections, which has recently been digitized, and looks at ways of increasing
+online user access to it. Ideally, online users will be able to provide query
+terms and relevant content (e.g., historical images) would be returned.
+This research project looks at exploring ideas from personalization, social networking and recommender systems research in view of providing a
+search interface aimed at satisfying this goal. However, this is no straightforward task as a critical obstacle is the lack of available and useful (i.e.,
+context-rich) meta-data to inform retrieval. To address this issue this
+early work will looks at the appropriateness of providing a social annotation engine to gather supplementary contextual information to inform
+retrieval. Ultimately, this will allow for the more accurate recommendation of objects from the collection inline with user requirements.
+Key words: historical collections, digital library retrieval
+
+1
+
+Introduction
+
+The Irish Virtual Research Library and Archive (IVRLA) was established in
+2005. Its aim is to work with the Humanities Institute of Ireland (HII) and the
+UCD History Department to preserve historical and cultural documents and to
+support user access to these. The collections are vast and diverse (i.e., tens of
+thousands of historical photographs, pamphlets etc.).
+The IVRLA graphical repository contains several collections of precious historical image-based data (e.g., scanned pamphlets, pictures etc.). However, the
+catalogue features that are used (e.g., date photograph was archived) are unlikely to be terms that a student might use to describe (and search for) the same
+photograph. In fact, other than the caption information associated with each
+object, few of these features provide useful contextual information to usefully
+inform search. Incidentally, these captions tend to be scant and content-light;
+rarely more than one sentence in length. Thus, the focus of this early work was
+on how we could add-value to these newly digitized objects initially through annotation in an attempt to promote their accessibility. Early work on this project
+has built a search and annotation engine over data provided by the IVRLA
+and carried out preliminary evaluations with real-users. Fig. 1 shows the basic
+annotation interface.
+
+45
+
+2
+
+Supporting Navigation Over Context-Limited Historical Digital Library Data
+
+Fig. 1. An example of an annotated image.
+
+2
+
+Initial Summary of User Testing and Conclusions
+
+A group of 30 users participated in 2 search and annotation trials (each lasting
+90 mins). There were 3 key objectives here: (1) to gather important feedback
+on how to further improve the interface in a real-user setting, (2) to gain some
+insight into the search/annotation habits of these users, and (3) to collect contextual annotations for images (i.e., build up the annotation repository). Due to
+space limitations we present only a summary of one of these trials. Very briefly,
+users were given a set of 60 images from the De Valera Collection, and asked to
+annotate these images accordingly. Each image object was displayed with relevant information, e.g. title, summary. During this phase of the test 936 different
+interactions were handled by the system. The maximum number of tags entered
+for an image was 23 while the minimum number was 11. On average 17 tags
+were entered per image. It was interesting to note how user annotations were
+influenced by the image captions that were available. In summary 62% of the
+tags entered appeared in the caption while 38% were additional tags that could
+be used to inform retrieval.
+Motivated by these initial findings and informed by closely related research
+in this area[1,2], we are currently (1) using the current engine to support the
+navigation of users over the IVRLA repository, (2) building up individual user
+interaction profiles, and (3) are investigating how best to use annotation profiles
+to inform personalized retrieval through community-based preference profiling
+within a recommender system architecture.
+
+References
+1. Chun, S., Cherry, R Hiwiller, D Trant, J Wyman, B. (2006) Steve.Museum: an
+ongoing experiment in social tagging, folksonomy and museums, Museums and the
+web 2006, Albuquerque.
+2. Whitney, C. Schiff, L. (2006) The Melvyl Recommender Project, In Proceedings in
+D-Lib Magazine, California, USA.
+
+46
+
+A Search Engine for 3D Models
+of Museum Artefacts
+Jing Chen, Lorraine McGinty & Noel O’Connor∗
+School of Computer Science & Informatics,University College Dublin (UCD), Ireland
+∗
+School of Electronic Engineering, Dublin City University (DCU), Ireland
+{jing.chen,lorraine.mcginty}@ucd.ie and {oconnorn}@eeng.dcu.ie
+
+Abstract. The National Museum of Ireland1 has about 5 million artifacts distributed across different physical locations. Essentially this
+means that only small fraction of these are accessible to the public at any
+time. Digital Libraries support the 3D browsing and retrieval of cultural
+museum artefacts and offer a potential solution to this problem. This paper describes a final year project where the objective was to build a search
+engine that: (1) could operate over a digital library storing digitized 3D
+model representations of objects, and (2) could be integrated with the
+existing DigiFact 2 system architecture based in CDVP3 at DCU.
+Key words: 3D Model Retrieval, Shape Distribution
+
+1
+
+Summary of Approach
+
+Motivated by the rapidly increasing of digitized 3D models and the growing need
+for more advanced digital library services to allow for increases accessibility [1,2],
+this work looks at how to represent, index, search and retrieve 3D objects. Two
+datasets (VRML models) were used. One contains 57 models that are freely
+downloadable from http://www.informatik.uni-leipzig.de/˜vranic/CCCC/. Another, containing 17 objects, which were scanned by using a specialised capture
+rig available in the CDVP. An adaptation of the Shape Distribution [2] approach
+introduced by Princetons 3D model search engine was implemented and tested
+by this work. This method uses geometric distributions as a basis for similarity
+and retrieval, it is a generalization of geometric histogram that represents 3D
+models as a probability distribution sampled from a shape function measuring
+properties of the 3D model. Five alternate shape functions [2] were implemented
+and evaluated as part of this work. They were:
+– A3: Measures the angle between 3 random points on the model surface.
+– D1: Measures the distance between a fixed point (e.g., centroid) and one
+random point on the surface.
+1
+2
+3
+
+http://www.museum.ie
+Digitization of Museum Artefacts Facilitating Search and Retrieval
+Centre for Digital Video Processing
+
+47
+
+2
+
+A Search Engine for 3D Models of Museum Artefacts
+
+– D2: Measures the distance between two random points on the surface.
+– D3: Measures the square root of the area of the triangle between three random points on the surface.
+– D4: Measures the cube root of the volume of the tetrahedron between four
+random points on the surface.
+
+(a)
+
+(b)
+
+Fig. 1. Screenshot of Search Interface: (a)Models from DCU; (b)Retrieval results of
+tennis ball model from DCU with D3 descriptor
+
+2
+
+Experimental Testing Summary
+
+Fig. 1 shows the query-by-samples search interface to the final working 3D search
+engine of museum artefacts that was ultimately developed and used by real users
+to compare the effectiveness of using each of the shape functions outlined. One of
+the tests carried out was a bullseye test whereby if there are A number of models
+in database, where n shapes in N categories, then each model is compared to
+every other shapes in the database, and the number of correct matches in the
+top X retrievals is counted. There are m possible correct matches per shape
+queried. The retrieval rate is the total number of correct matches divided by the
+total number possible, which is n [3]. This test showed that shape functions A3,
+D1 and D4 were the best in 6 out of 8 categories (i.e., 75% of the time); the best
+shape function overall was D4, it achieved best results for 37% of categories, and
+Accurary ranges of bet 40% and 80% in each categories; meanwhile, D2 is the
+worst shape function overall, the accuracy range bet 30% and 70%, and it was
+not the best descriptor for any individual category.
+
+References
+1. Griffin, S. M. (Program Manager of the Digital Libraries Initiative, NSF): Taking
+the Initiative for Digital Libraries. The Electronic Library, 16(1), 24-27, 1998
+2. Osada, R., Funkhouser, T., Chazelle, B., and Dobkin, D.: Shape Distribution.
+Princeton University. ACM Transaction on Graphics 21(4), pp.807-832, 2002
+3. McNeill, G., Vijayakumar, S.: A Probabilistic Approach to Robust Shape Matching.
+In Proceedings of International Conference on Image Processing, Atlanta, GA, 2006
+
+48
+
+Semantics-driven Recommendations in
+Cross-Media Museum Applications
+Natalia Stash1 , Lora Aroyo2 , Yiwen Wang1 , Lloyd Rutledge3 and
+Peter Gorgels4
+1
+
+4
+
+Technische Universiteit Eindhoven
+{n.v.stash, y.wang}@tue.nl
+2
+Vrij Universiteit Amsterdam
+l.m.aroyo@cs.vu.nl
+3
+Open Universiteit Nederland
+Lloyd.Rutledge@ou.nl
+Rijksmuseum Amsterdam, The Netherlands
+P.Gorgels@rijksmuseum.nl
+
+Abstract. In this paper we present the CHIP demonstrator aimed at
+helping users to explore the Rijksmuseum Amsterdam collection both
+online and inside the museum. Cultural heritage data from various external sources is integrated to provide an enriched semantic knowledge
+structure. The resulting RDF/OWL graph is the basis for CHIP main
+functionality for recommendations, search and personalized interaction.
+
+1
+
+Introduction
+
+Different types of people visit museums — school children, tourists, art experts,
+students — and all of them have different goals and interests in art and would
+need a different route and a story inside the museum. The main focus of the
+CHIP project is to provide a personalized experience to the museum visitors
+on the museum Web site as well as in the museum. We built several CHIP
+demonstrators that (a) allow users to find out what they like and dislike in the
+museum collection, (b) allow being their own curators by selecting artworks and
+topics they want to see in a museum tour, and (c) show how mobile tour guide
+can help guiding users inside the museum [1].
+The main question that we focus on in CHIP is whether we can use semantic metadata of cultural heritage to improve personalized access through
+multiple devices, such as PCs, PDAs or mobile phones. The personalized access
+and navigation that we provide is based on a semantically enriched data from
+the digital database ARIA5 of the Rijksmuseum Amsterdam. The online CHIP
+demonstrators [2] and a tutorial with a brief walk-through of the personalization
+functionality can be found at http://www.chip-project.org/demo.
+5
+
+http://rijksmuseum.nl/aria/
+
+49
+
+2
+
+2
+
+Semantics-driven Recommendations in Cross-Media Museum Applications
+
+The CHIP Data Approach
+
+The main problem with museum thesauri is often the fact that they have a rather
+flat and non-hierarchical structure. For example, there are missing intuitive relationships between topics like “mythology” and “Zeus”. In order to be able to
+explore interesting relationships between artworks we often need more semantic knowledge. Thus, the use of semantics is an important instrument in our
+approach to enhance the interaction with museum collections. We use external
+cultural heritage structures to enrich the existing Rijksmuseum collection metadata. For the CHIP demonstrators we applied a general strategy, as explained
+in the steps below, that supports such class of semantics-based applications in
+cultural heritage domain.
+1. Making museum metadata available in RDF/OWL.
+In collaboration with the MultimediaN E-Culture project6 , we made the
+relevant metadata of the website-targeted digital ARIA database (a kiosk
+system for the museum) available in RDF/OWL. This collection contains
+729 artworks, 486 themes, 690 encyclopedia keywords, 43 catalogue terms,
+and finally resulted in 47.329 triples. We also converted the curator-targeted
+AdLib database, which contains 16.156 artworks and resulted in 400.405
+triples. The current CHIP demonstrator uses only the ARIA conversion,
+while preparations are made to include also the AdLib RDF/OWL.
+2. Making relevant external vocabularies available in RDF/OWL.
+Next important step was to select the relevant external cultural heritage
+sources and convert them in RDF/OWL. In the CHIP demonstrator we
+use the RDF/OWL conversion of the three Getty thesauri7 as provided by
+the E-Culture project, i.e. the list of Geographical Names (TGN, 425.517
+triples), the Unified List of Artists Names (ULAN, 1.896.936 triples) and
+the Art and Architecture Thesaurus (AAT, 1.249.162 triples). Next to this
+we use the RDF/OWL conversion of IconClass8 , containing 24.349 triples,
+as provided by the STITCH9 project.
+3. Aligning and enriching vocabularies/metadata.
+In this step we did the following manual alignments of the ARIA vocabulary
+to the Getty and IconClass concepts: 2.825 mappings of subject themes and
+artists styles to 283 different AAT concepts, 485 mappings of artists names
+to 263 ULAN concepts, 507 mappings of concepts for places to 69 TGN concepts, 503 mappings of subject themes to 178 IconClass concepts. In order
+to introduce the “style” concept in the Rijksmuseum collection (and thus
+allow users to search for artworks in a particular style, e.g. “Baroque”) we
+mapped the Getty aat:style metadata to the artists metadata in ARIA collection. Further we mapped the Rijksmuseum “Location/Period” metadata
+to aat:period and tgn:location.
+6
+7
+8
+9
+
+http://e-culture.multimedian.nl/
+http://www.getty.edu/research/conducting research/vocabularies/
+http://www.iconclass.nl/libertas/ic?style=index.xsl
+http://www.cs.vu.nl/STITCH/
+
+50
+
+Semantics-driven Recommendations in Cross-Media Museum Applications
+
+3
+
+We also did a manual alignment of the AdLib vocabulary to the Getty thesauri, resulting in mappings to 534 AAT concepts and 3.846 ULAN concepts.
+4. Using resulting RDF/OWL graph for building a combined (virtual
+and physical) user model.
+While interacting with the CHIP demonstrator users can give ratings to
+artworks and topics using 5-star-rating-scale, e.g. I hate it, I do not like it,
+It is OK, I like it and I like it very much. Ratings are stored in the user
+model as artwork or topic URI/rating value pairs representing an overlay of
+the CHIP enriched data model [3]. In order to solve a cold start problem we
+have done first attempts in importing users’ data in CHIP from iCITY10 .
+5. Using resulting RDF/OWL graph for recommendations,
+(semi)automatic generation of museum tours and search.
+The ratings stored in the user model are used for generating recommendations of Rijksmuseum topics and artworks. A topic (e.g., “Rembrandt”,
+“Portraiture”) can be recommended to the user if (s)he rates positively artworks that have this topic or if (s)he rates positively semantically related
+topics (e.g., if the user rates positively “Birds” then a parent topic “Animals” is recommended). CHIP demonstrator finds artworks related to positively rated or highly recommended topics and recommends them to the
+user. Currently two tours are generated automatically for the user based on
+his/her user model — Tour of Rijksmuseum Favorites containing artworks
+positively rated by the user and Tour of Recommended Artworks containing 20 top recommended artworks. User can also create tours by using the
+semantic-search option integrated via the E-Culture open API. In this way
+the user is able to search not only for artworks and topics exactly matching
+the search term, but also for semantically related artworks in the Rijksmuseum collection. For example, if the user searches for “Rembrandt” (s)he gets
+not only artworks created by Rembrandt himself but also artworks created
+by Rembrandt’s teachers and students, as well as artworks by artists in the
+same style as Rembrandt, etc..
+
+3
+
+CHIP Demonstrator Architecture
+
+CHIP demo is based on a client-server architecture. Server side contains the
+following information:
+– Collection data — the enriched Rijksmuseum collection maintained by
+Sesame Open RDF memory store and queried with SeRQL.
+– Users data — RDF user models which are later transformed in XML to be
+downloaded to the mobile device and XML tours data.
+– Demo components. The Art Recommender provides a user-rating-driven
+interactive interface that helps the user discover his/her interests in the
+Rijksmuseum collection by recommending relevant topics and artworks from
+the collection. The user can rate each recommended item as an explicit
+10
+
+http://icity.di.unito.it/dsa/
+
+51
+
+4
+
+Semantics-driven Recommendations in Cross-Media Museum Applications
+External APIs
+
+CHIP Core Components
+Mobile Client
+
+Server
+
+Users data
+
+Users data
+Collection data
+(RDF store)
+
+iCity
+API
+
+User model
+
+User model
+
+Tour data
+
+Tour data
+
+Mobile demo
+component
+
+Web-based demo components
+Art Recommender
+
+RSS
+
+Mobile Guide
+
+Tour Wizard
+
+used in physical museum
+
+Existing
+Tools
+
+Simile Exhibit
+
+Web-Browser
+Client
+
+Simile Timeline
+
+Fig. 1. CHIP Overall Architecture
+
+feedback. The Tour Wizard helps the user build personalized museum tours
+and visualize them on a museum map and a historical timeline. The semantic
+search option is available in both tools. Art Recommender and Tour Wizard
+are realized as Java Sevlets and JSP pages with CSS and JavaScript. AJAX is
+involved for enhancing user experience. Simile Exhibit and Simile Timeline11
+javascript web applications are applied in the demo components for data
+presentation.
+CHIP PDA client with MS Windows Mobile as operating system contains a
+standalone application Mobile Guide. It is RFID reader enabled and can work
+offline inside the museum and subsequently be synchronized with the server-side
+on demand. Windows Mobile application is written using the .NET framework
+in C#. openNetCF and fmodCE libraries are used to support audio features.
+User model and tour data are downloaded from the server and are being used
+during the tour. User model is updated when the user provides artworks ratings
+on a PDA. After the tour this user model can be synchronized with the one on
+the server.
+During the demonstration we will present both online components Art Recommender and Tour Wizard and the mobile component Mobile Guide.
+
+References
+1. L. Aroyo, R. Brussee, P. Gorgels, L. Rutledge, N. Stash, and Y. Wang. Personalized Museum Experience: The Rijksmuseum Use Case. In Museums and the Web
+Conference, 2007.
+2. L. Aroyo, N. Stash, Y. Wang, and P. Gorgels. CHIP Demonstrator: Semantics-driven
+Recommendations and Museum Tour Generation. In ISWC Conference, 2007.
+3. Y. Wang, L. Aroyo, N. Stash, and L. Rutledge. Interactive User Modeling for
+Personalized Access to Museum Collections: The Rijksmuseum Case Study. In UM
+Conference, pages 385–389, 2007.
+11
+
+http://simile.mit.edu/
+
+52
+
+
